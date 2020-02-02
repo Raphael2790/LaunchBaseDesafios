@@ -1,0 +1,28 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: darkgray;
+  margin: 0 auto;
+  width: 940px;
+}
+
+header {
+  padding: 30px;
+}
+
+header div ul a {
+  margin: 0 30px 0 0;
+  text-decoration: none;
+  line-height: 30px;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+div {
+  text-align: center;
+  border: #000 solid 2px;
+  border-radius: 10px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
