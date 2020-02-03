@@ -1,0 +1,11 @@
+*Podemos fazer importações também na pagina de estilos pelo comando @import "url", fontes mais claras ou escuras devem ser selecionadas na importação;
+*A propriedade border-radius pode ser atribuida formatação de cada borda separadamente;
+*A propriedade line-height aumenta o tamanho da linha onde se encontra o texto recomendado colocar 10px acima do tamnho da fonte;
+*A propriedade max-width limita o tamnho maximo do elemento e cria uma quebra automatica caso o conteudo nao ocupe o tamanho maximo da tela podemos usar a propriedade margin 0 auto para centralizar o elemento;
+*O mesmo serve para a propriedade min-width;
+*:root { 
+  --color-white(nome da variavel): #ffffff
+}
+color: var(--color-white); modo de utilização dentro de um escopo css;
+*Thumbnails captura a imagem de inicio do video no youtube ou qualquer outro video;
+*O width de um elemento ocupa o espaço do elemto pai;
