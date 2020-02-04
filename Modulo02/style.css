@@ -1,10 +1,11 @@
-@import "https://fonts.googleapis.com/css?family=Roboto&display=swap";
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,900&display=swap');
 
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: darkgray;
-  margin: 0 auto;
-  width: 940px;
+  opacity: 0.8;
+  background-image: url(noite-estrelada.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 header {
@@ -17,14 +18,55 @@ header div ul a {
   line-height: 30px;
   font-size: 20px;
   font-weight: bolder;
+  color: #ffffff;
 }
 
 div {
   text-align: center;
-  border: #000 solid 2px;
   border-radius: 10px;
 }
 
 a:hover {
   text-decoration: underline;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  position: relative;
+  gap: 10px;
+  margin: 0 auto
+}
+
+.number-card {
+  border: 2px solid #7159C1;
+  width: 40px;
+  height: 40px;
+  margin: 10px auto;
+  border-radius: 50%;
+}
+
+.number-card p {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.card {
+  width: 400px;
+  margin: 100px auto;
+  height: 600px;
+  border: 2px solid #7159C1;
+  text-align: center;
+}
+
+.card img {
+  margin: 60px 0;
+}
+
+.card p {
+  color:#ffffff;
+  padding: 10px;
+  font-weight: bolder;
+  font-size: 20px;
+  line-height: 30px;
 }
