@@ -2,7 +2,6 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  opacity: 0.8;
   background-image: url(noite-estrelada.png);
   background-repeat: no-repeat;
   background-size: cover;
@@ -10,6 +9,8 @@ body {
 
 header {
   padding: 30px;
+  background-color: #131217;
+  opacity: 0.8;
 }
 
 header div ul a {
@@ -24,6 +25,8 @@ header div ul a {
 div {
   text-align: center;
   border-radius: 10px;
+  background-color: #131217;
+  opacity: 0.8;
 }
 
 a:hover {
@@ -31,12 +34,14 @@ a:hover {
 }
 
 .cards {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   position: relative;
   gap: 10px;
   margin: 0 auto
 }
+
 
 .number-card {
   border: 2px solid #7159C1;
@@ -69,4 +74,9 @@ a:hover {
   font-weight: bolder;
   font-size: 20px;
   line-height: 30px;
+}
+
+.card:hover {
+  border: hotpink solid 2px;
+  padding: 5px 0 0 0;
 }
