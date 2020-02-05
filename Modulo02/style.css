@@ -1,8 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,900&display=swap');
 
+:root {
+  --color-purple: #7159C1;
+  --color-orange: #FD951F;
+  --color-green: #04D361;
+}
+
+
 body {
   font-family: 'Roboto', sans-serif;
-  background-image: url(noite-estrelada.png);
+  background-color: #0B0A0D;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -10,7 +17,7 @@ body {
 header {
   padding: 30px;
   background-color: #131217;
-  opacity: 0.8;
+  text-align: center;
 }
 
 header div ul a {
@@ -22,11 +29,18 @@ header div ul a {
   color: #ffffff;
 }
 
-div {
+h1 {
   text-align: center;
-  border-radius: 10px;
-  background-color: #131217;
-  opacity: 0.8;
+  color: #ffffff;
+  font-size: 40px;
+  margin: 30px 0 0 0;
+  font-weight: bolder;
+}
+
+h2 {
+  color: #ffffff;
+  font-weight: bolder;
+  font-size: 30px;
 }
 
 a:hover {
@@ -34,34 +48,67 @@ a:hover {
 }
 
 .cards {
-  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   position: relative;
   gap: 10px;
-  margin: 0 auto
+  margin: 0 auto;
+  transition: border 2s;
 }
 
 
 .number-card {
-  border: 2px solid #7159C1;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   margin: 10px auto;
   border-radius: 50%;
 }
 
-.number-card p {
-  text-align: center;
-  margin: 0 auto;
+.card .number-card p {
+  margin: 0 -1px;
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.cards .textos {
+  display: grid;
+  grid-template-columns: repeat( 2, 1fr);
+  margin-top: 100px;
+  background-color: #0B0A0D;
+}
+
+#starter .number-card p {
+  color: var(--color-purple);
+}
+
+#starter .number-card  {
+  border: 2px solid var(--color-purple);
+}
+
+#launch .number-card p {
+  color: var(--color-orange);
+}
+
+#launch .number-card  {
+  border: 2px solid var(--color-orange);
+}
+
+#gostack .number-card p {
+  color: var(--color-green);
+}
+
+#gostack .number-card  {
+  border: 2px solid var(--color-green);
 }
 
 .card {
   width: 400px;
-  margin: 100px auto;
+  margin: 50px 0;
   height: 600px;
-  border: 2px solid #7159C1;
   text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #131217;
 }
 
 .card img {
@@ -77,6 +124,32 @@ a:hover {
 }
 
 .card:hover {
-  border: hotpink solid 2px;
-  padding: 5px 0 0 0;
+  padding-top: -10px;
+}
+
+#launch:hover {
+  border: solid 2px var(--color-orange);
+}
+
+#gostack:hover {
+  border:solid 2px var(--color-green)
+}
+
+#starter:hover {
+  border: solid 2px var(--color-purple);
+}
+
+/* Modal */
+
+.modal {
+  visibility: hidden;
+  display: none;
+}
+
+.modal .active {
+  visibility: visible;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
 }
