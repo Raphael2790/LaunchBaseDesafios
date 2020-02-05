@@ -14,3 +14,5 @@ color: var(--color-white); modo de utilização dentro de um escopo css;
 *A propriedade grid deve ser usada junto com uma templte columns ou template row, a propriedade gap cria um espaçamento entre os elementos do grid;
 *Position relative deve ser usada em elementos pai para o filho usar uma posição absoluta sobre ele, senão a posição absoluta será sobre a tela como um todo;
 *getAtributte pega qualquer atributo do elemento html
+*overflow:hidden desabilita a barra de scroll da janela de iframe
+*scrolling:no,yes ou auto define se havera rolamento na pagina

@@ -139,17 +139,23 @@ a:hover {
   border: solid 2px var(--color-purple);
 }
 
-/* Modal */
-
-.modal {
-  visibility: hidden;
-  display: none;
-}
-
-.modal .active {
-  visibility: visible;
+/*== Modal ==*/
+.modalOverlay {
   position: fixed;
   width: 100%;
-  height: 100%;
   top: 0;
+  height: 100%;
+  background-color: rgba(41, 40, 40, 0.8);
+}
+
+.modal {
+  background-color: #ffffff;
+  width: 90%;
+  height: 90%;
+  position: absolute;
+  margin: 5vh auto;
+}
+
+iframe {
+  overflow: hidden;
 }
