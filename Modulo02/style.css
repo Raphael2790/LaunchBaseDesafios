@@ -146,6 +146,8 @@ a:hover {
   top: 0;
   height: 100%;
   background-color: rgba(41, 40, 40, 0.8);
+  opacity: 0;
+  visibility: hidden;
 }
 
 .modal {
@@ -159,3 +161,11 @@ a:hover {
 iframe {
   overflow: hidden;
 }
+
+/*== Modal-active == */
+
+.modalOverlay.active {
+  visibility: visible;
+  opacity: 1;
+}
+
