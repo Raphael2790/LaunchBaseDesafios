@@ -53,7 +53,6 @@ a:hover {
   position: relative;
   gap: 10px;
   margin: 0 auto;
-  transition: border 2s;
 }
 
 
@@ -82,15 +81,15 @@ a:hover {
 }
 
 #starter .number-card  {
-  border: 2px solid var(--color-purple);
+  border: 3px solid var(--color-purple);
 }
 
-#launch .number-card p {
+#launchbase .number-card p {
   color: var(--color-orange);
 }
 
-#launch .number-card  {
-  border: 2px solid var(--color-orange);
+#launchbase .number-card  {
+  border: 3px solid var(--color-orange);
 }
 
 #gostack .number-card p {
@@ -98,7 +97,7 @@ a:hover {
 }
 
 #gostack .number-card  {
-  border: 2px solid var(--color-green);
+  border: 3px solid var(--color-green);
 }
 
 .card {
@@ -109,6 +108,7 @@ a:hover {
   padding: 10px;
   border-radius: 10px;
   background-color: #131217;
+  transition: border 600ms, margin 600ms;
 }
 
 .card img {
@@ -124,10 +124,10 @@ a:hover {
 }
 
 .card:hover {
-  padding-top: -10px;
+  margin-top: 40px;
 }
 
-#launch:hover {
+#launchbase:hover {
   border: solid 2px var(--color-orange);
 }
 
@@ -140,7 +140,7 @@ a:hover {
 }
 
 /*== Modal ==*/
-.modalOverlay {
+.modal-overlay {
   position: fixed;
   width: 100%;
   top: 0;
@@ -154,18 +154,44 @@ a:hover {
   background-color: #ffffff;
   width: 90%;
   height: 90%;
-  position: absolute;
+  position: relative;
   margin: 5vh auto;
 }
 
-iframe {
-  overflow: hidden;
-}
+
 
 /*== Modal-active == */
 
-.modalOverlay.active {
+.modal-overlay.active {
   visibility: visible;
   opacity: 1;
 }
 
+.modal.maximize {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+iframe {
+  overflow: hidden;
+  height: 90%;
+  width: 100%;
+  position: absolute;
+  margin: 0 auto;
+  top: 5%;
+}
+
+.close-modal {
+  position: absolute;
+  right:0;
+  top: 0;
+  cursor: pointer;
+}
+
+.maximize-modal {
+  position: absolute;
+  right: 25px;
+  top: 2px;
+  cursor: pointer;
+}
