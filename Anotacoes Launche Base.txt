@@ -16,3 +16,5 @@ color: var(--color-white); modo de utilização dentro de um escopo css;
 *getAtributte pega qualquer atributo do elemento html
 *overflow:hidden desabilita a barra de scroll da janela de iframe
 *scrolling:no,yes ou auto define se havera rolamento na pagina
+*A propriedade margin cria um espaçamneto externo do conteudo, a proprieade padding cria um espaçamento interno do conteudo aumentando o tamanho do elemento
+*box-sizing: border-box corrigi o problema do aumento do conteudo interno ao aplicar a propriedade padding;
