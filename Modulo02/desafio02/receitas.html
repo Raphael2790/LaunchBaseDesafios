@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Receitas - Foodfy</title>
+  <link rel="shortcut icon" type="image/x-icon" href="./assets/logoFoodfy.ico">
   <link rel="stylesheet" href="reset.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="receitas.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
   <link rel="shortcut icon" type="image/x-icon" href="./assets/logoFoodfy.ico">
-  <title>Foodfy - Home</title>
 </head>
 <body>
   <header>
@@ -23,28 +23,60 @@
   </header>
   <main>
     <section>
+      <div class="grid">
 
-      <div id="topo">
-        <div id="texto">
+        <div class="itens">
 
-          <h2>As melhores receitas</h2>
+          <img src="./assets/burger.png" alt="Hamburguer">
+          <p>Triplo bacon burguer</p>
+          <small>por Jorge Relato</small>
 
-          <p>Aprenda a construir os melhores pratos
-            com receitas criadas por profissionais
-            do mundo inteiro.</p>
+          <div class="modal-overlay">
+
+            <div class="modal">
+
+              <a class="close-modal">
+                <i class="material-icons">close</i>
+              </a>
+              <img src="./assets/burger.png" alt="Hamburguer">
+              <p>Triplo bacon burguer</p>
+              <small>por Jorge Relato</small>
+              
+            </div>
+
+          </div>
 
         </div>
-  
-          <img src="./assets/chef.png" alt="Chefe" id="div-img">
 
-      </div>
+        <div class="itens">
+          <img src="./assets/pizza.png" alt="Hamburguer">
+          <p>Pizza 4 estações</p>
+          <small>por Fabiana Melo</small>
+        </div>
 
-    </section>
+        <div class="itens">
+          <img src="./assets/espaguete.png" alt="Hamburguer">
+          <p>Espaguete ao alho</p>
+          <small>por Julia Kinoto</small>
+        </div>
 
-    <section>
-      
-      <h3>Mais acessadas</h3>
-      <div class="grid">
+        <div class="itens">
+          <img src="./assets/lasanha.png" alt="Hamburguer">
+          <p>Lasanha mac n' cheese</p>
+          <small>por Juliano Vieira</small>
+        </div>
+
+        <div class="itens">
+          <img src="./assets/doce.png" alt="Hamburguer">
+          <p>Docinhos pão do céu</p>
+          <small>por Ricardo Golvea</small>
+        </div>
+
+        <div class="itens">
+          <img src="./assets/asinhas.png" alt="Hamburguer">
+          <p>Asinhas de frango barbecue</p>
+          <small>por Jorge Relato</small>
+        </div>
 
         <div class="itens">
 
@@ -102,10 +134,8 @@
       </div>
     </section>
   </main>
-
   <footer>
     <p> &copy;Todos direitos reservados, receitas Foodfy 2020</p>
   </footer>
-  <script src="indexscript.js"></script>
 </body>
 </html>
