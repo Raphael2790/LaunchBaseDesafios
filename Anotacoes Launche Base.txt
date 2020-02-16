@@ -1,3 +1,5 @@
+Modulo 1 e 2 ( Front End)
+
 *Podemos fazer importações também na pagina de estilos pelo comando @import "url", fontes mais claras ou escuras devem ser selecionadas na importação;
 *A propriedade border-radius pode ser atribuida formatação de cada borda separadamente;
 *A propriedade line-height aumenta o tamanho da linha onde se encontra o texto recomendado colocar 10px acima do tamnho da fonte;
@@ -18,3 +20,5 @@ color: var(--color-white); modo de utilização dentro de um escopo css;
 *scrolling:no,yes ou auto define se havera rolamento na pagina
 *A propriedade margin cria um espaçamneto externo do conteudo, a proprieade padding cria um espaçamento interno do conteudo aumentando o tamanho do elemento
 *box-sizing: border-box corrigi o problema do aumento do conteudo interno ao aplicar a propriedade padding;
+
+Modulo 3 ( Back End)
