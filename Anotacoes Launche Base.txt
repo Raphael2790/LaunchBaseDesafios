@@ -20,5 +20,8 @@ color: var(--color-white); modo de utilização dentro de um escopo css;
 *scrolling:no,yes ou auto define se havera rolamento na pagina
 *A propriedade margin cria um espaçamneto externo do conteudo, a proprieade padding cria um espaçamento interno do conteudo aumentando o tamanho do elemento
 *box-sizing: border-box corrigi o problema do aumento do conteudo interno ao aplicar a propriedade padding;
+*display grid tambem podem ser usado para alinhar elementos internos para não deixar o conteudo se ajustar por conta propria
+*align item trata do alinhamento de uma mesma linha como se alinhasse no eixo x de umplano cartesiano só funciona com display flex e grid
+
 
 Modulo 3 ( Back End)
