@@ -1,34 +1,59 @@
 {% extends "layout.njk" %}
 
+{% block header %}
+<header>
+    <div>
+      <nav>
+        <ul>
+        {%for nav in navbar%}
+          <a href="{{nav.href}}">{{nav.title}}</a>
+        {% endfor %}
+        </ul>
+      </nav>
+    </div>
+  </header>
+{% endblock %}
+
 {%block main%}
   <main>
     <h1>Cursos</h1>
     <section class="cards">
-      <div>
-        <div class="card" id="starter">
-          <div class="number-card">
-            <p>01</p>
-          </div>
-          <img src="https://skylab.rocketseat.com.br/static/64c237ccff807c054339a62d53b4b402.svg" alt="Curso Starter">
-          <h2>Rockeseats Starter</h2>
-          <div class="textos">
-            <p>11 módulos</p>
-            <p>Grátis</p>
-          </div>
-        </div>
 
-        <div class="modal-overlay">
+      {% for card in cards %}
+        <div>
+          <div class="card" id="{{card.id}}">
+            <div class="number-card">
+              <p>{{card.number}}</p>
+            </div>
+            <img src="{{card.src}}" alt="Curso Starter">
+            <h2>{{card.name}}</h2>
+            <div class="textos">
+              <p>{{card.modules}}</p>
+              <p>{{card.price}}</p>
+            </div>
+          </div>
+
+        </div>
+      {% endfor %} 
+      
+    </section>
+
+    <div class="modal-overlay">
+
           <div class="modal">
+
             <a class="maximize-modal">
               <i class="material-icons">
                 maximize
               </i>
             </a>
+
             <a class="close-modal">
               <i class="material-icons">
                 close
               </i>
             </a>
+
             <div class="modal-content">
 
             <iframe src="" frameborder="0"></iframe>
@@ -39,86 +64,6 @@
 
         </div>
 
-      </div>  
-      
-      <div>
-
-        <div class="card" id="launchbase">
-          <div class="number-card">
-            <p>02</p>
-          </div>
-          <img src="https://skylab.rocketseat.com.br/static/0828532024cb46921a6b5e941f8d788d.svg" alt="Curso Lauchbase">
-          <h2>Rockeseats LauchBase</h2>
-          <div class="textos">
-            <p>27 módulos</p>
-            <p>Pago</p>
-          </div>
-        </div>
-
-        <div class="modal-overlay">
-          <div class="modal">
-            <a class="maximize-modal">
-              <i class="material-icons">
-                maximize
-              </i>
-            </a>
-            <a class="close-modal">
-              <i class="material-icons">
-                close
-              </i>
-            </a>
-
-            <div class="modal-content">
-              
-              <iframe src="" frameborder="0"></iframe>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <div>
-
-        <div class="card" id="gostack">
-          <div class="number-card">
-            <p>03</p>
-          </div>
-          <img src="https://skylab.rocketseat.com.br/static/83a178a0653dab1d55e2ed7946465975.svg" alt="Curso GoStack">
-          <h2>Rockeseats GoStack</h2>
-            <div class="textos">
-            <p>27 módulos</p>
-            <p>Pago</p>
-          </div>
-        </div>
-
-        <div class="modal-overlay">
-          <div class="modal">
-            <a class="maximize-modal">
-              <i class="material-icons">
-                maximize
-              </i>
-            </a>
-            <a class="close-modal">
-              <i class="material-icons">
-                close
-              </i>
-            </a>
-            <div class="modal-content">
-
-              <iframe src="" frameborder="0"></iframe>
-
-            </div> 
-
-          </div>
-
-        </div>
-    
-      </div>  
-
-    </section>
   </main>
 
   <script src="/script.js"></script>

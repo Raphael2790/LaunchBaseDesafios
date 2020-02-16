@@ -14,3 +14,16 @@
 </head>
 {%endblock%}
 
+{% block header %}
+<header>
+    <div>
+      <nav>
+        <ul>
+        {%for nav in navbar%}
+          <a href="{{nav.href}}">{{nav.title}}</a>
+        {% endfor %}
+        </ul>
+      </nav>
+    </div>
+  </header>
+{% endblock %}
