@@ -66,6 +66,8 @@ footer {
   background-color: #eeeeee;
   margin: 0;
   vertical-align: middle;
+  position: absolute;
+  left: 0;
 }
 
 footer p {
@@ -74,4 +76,53 @@ footer p {
   line-height: 16px;
   color: #999999;
   padding: 1em 0 1em 0;
+}
+
+/*== Modal ==*/
+
+.modal-overlay {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  margin: 1vh;
+  background-color: var(--color-dark);
+  visibility: hidden;
+  opacity: 0;
+}
+
+.modal {
+  margin: 5vh auto;
+  width: 40%;
+  height: 40%;
+  position: relative;
+  top: 20%;
+  background-color: #ffffff;
+  text-align: center;
+  padding-top: 20px;
+  border-radius: 15px;
+  opacity: 1;
+}
+
+.modal img {
+  border-radius: 15px;
+  width: 300px;
+  margin: 1em 0;
+}
+
+.close-modal {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  background: rgba(32, 32, 32, 0.5);
+  transition: opacity 800ms;
+  margin: 0;
+  position: fixed;
+  right: 0;
 }
