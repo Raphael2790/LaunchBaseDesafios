@@ -21,6 +21,10 @@ server.get('/conteudo', (req, res) =>{
   return res.render('conteudo')
 })
 
+server.use(function(req, res) {
+  return res.status(404).render("not-found");
+});
+
 server.listen(5000, (err) => {
   if(err) {
     return `Erro ${err}`

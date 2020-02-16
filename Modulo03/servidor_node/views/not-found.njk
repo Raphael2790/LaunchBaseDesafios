@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+{% extends "layout.njk" %}
+
 
 {%block head%}
 <head>
@@ -11,28 +11,19 @@
   <link rel="stylesheet" href="/style.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
-  <title>Conteudos</title>
+  <title>Not Found</title>
 </head>
 {%endblock%}
 
-<body>
-  <header>
-    <div>
-      <ul>
-        <a href="https://discordapp.com/invite/gCRAFhc">Comunidade</a>
-        <a href="mailto:oi@rocketseat.com.br">Email</a>
-        <a href="tel:+5547992078767">Telefone</a>
-        <a href="/conteudo">Conteudo</a>
-      </ul>
+{%block notfound%}
+  <main>
+    <div id="not-found">
+      <h1 id="number">404</h1>
+      <i id="triste" class="material-icons">
+        sentiment_very_dissatisfied
+      </i>
+      <h2 id="large-text">Page not Found</h2>
+      <h3 id="small-text">We are working on this...</h3>
     </div>
-  </header>
-
-  {%block notfound%}
-  {%endblock%}
-
-  {%block main%}
-  {%endblock%}
-
-  
-</body>
-</html>
+  </main>
+{%endblock%}
