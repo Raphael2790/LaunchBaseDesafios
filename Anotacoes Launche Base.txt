@@ -25,3 +25,4 @@ color: var(--color-white); modo de utilização dentro de um escopo css;
 
 
 Modulo 3 ( Back End)
+*window.location.href faz ser enviado a outra url
