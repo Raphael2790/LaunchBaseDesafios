@@ -40,7 +40,7 @@ navbar : [
     title:'Telefone'
   },
   {
-    href:'/conteudo',
+    href:'/content',
     title:'Conteudo'
   }
 ]

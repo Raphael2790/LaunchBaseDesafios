@@ -1,0 +1,71 @@
+{% extends "layout.njk" %}
+
+{% block header %}
+<header>
+    <div>
+      <nav>
+        <ul>
+        {%for nav in navbar%}
+          <a href="{{nav.href}}">{{nav.title}}</a>
+        {% endfor %}
+        </ul>
+      </nav>
+    </div>
+  </header>
+{% endblock %}
+
+{%block content%}
+  <main>
+    <h1>Cursos</h1>
+    <section class="cards">
+
+      {% for card in cards %}
+        <div>
+          <div class="card" id="{{card.id}}">
+            <div class="number-card">
+              <p>{{card.number}}</p>
+            </div>
+            <img src="{{card.src}}" alt="Curso Starter">
+            <h2>{{card.name}}</h2>
+            <div class="textos">
+              <p>{{card.modules}}</p>
+              <p>{{card.price}}</p>
+            </div>
+          </div>
+
+        </div>
+      {% endfor %} 
+      
+    </section>
+
+    <div class="modal-overlay">
+
+          <div class="modal">
+
+            <a class="maximize-modal">
+              <i class="material-icons">
+                maximize
+              </i>
+            </a>
+
+            <a class="close-modal">
+              <i class="material-icons">
+                close
+              </i>
+            </a>
+
+            <div class="modal-content">
+
+            <iframe src="" frameborder="0"></iframe>
+
+            </div>
+
+          </div>
+
+        </div>
+
+  </main>
+
+  <script src="/script.js"></script>
+  
+  {%endblock%}
