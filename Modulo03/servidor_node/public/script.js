@@ -6,6 +6,7 @@ const modal = document.querySelector('.modal')
 for(let card of cards) {
   card.addEventListener('click', () => {
     const modalId = card.getAttribute('id')
+    window.location.href = `/courses?id=${modalId}`
     modalOverlay.classList.add('active')
     modalOverlay.querySelector('iframe').src = (`https://rocketseat.com.br/${modalId}`)
   })
