@@ -109,6 +109,7 @@ a:hover {
   border-radius: 10px;
   background-color: #131217;
   transition: border 600ms, margin 600ms;
+  cursor: pointer;
 }
 
 .card img {

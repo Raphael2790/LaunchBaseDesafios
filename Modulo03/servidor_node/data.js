@@ -39,9 +39,5 @@ navbar : [
     href:'tel:+5547992078767',
     title:'Telefone'
   },
-  {
-    href:'/content',
-    title:'Conteudo'
-  }
 ]
 }

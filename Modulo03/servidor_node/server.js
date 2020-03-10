@@ -16,10 +16,6 @@ nunjucks.configure('views',{
 })
 
 server.get('/', (req, res) =>{
-  return res.render('index', {navbar:data.navbar})
-})
-
-server.get('/content', (req, res) =>{
   return res.render('content', {cards:data.grid,navbar:data.navbar})
 })
 
