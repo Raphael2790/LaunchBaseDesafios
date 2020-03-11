@@ -19,7 +19,7 @@ server.get('/', (req, res) =>{
   return res.render('content', {cards:data.grid,navbar:data.navbar})
 })
 
-server.get('/courses', (req, res) => {
+/*server.get('/courses', (req, res) => {
   const id = req.query.id;
 
   const course = data.grid.find((course) => {
@@ -30,8 +30,9 @@ server.get('/courses', (req, res) => {
     return res.render('not-found', {navbar:data.navbar})
     }
 
-  return res.render('courses', {navbar:data.navbar})
+  return res.render('courses', {navbar:data.navbar, card:course})
 })
+*/
 
 server.use(function(req, res) {
   return res.status(404).render("not-found",{navbar:data.navbar} );
