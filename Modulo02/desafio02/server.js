@@ -18,6 +18,14 @@ server.get('/', (req, res) => {
   return res.render('index');
 })
 
+server.get('/sobre', (req, res) => {
+  return res.render('sobre')
+})
+
+server.get('/receitas', (req, res) => {
+  return res.render('receitas')
+})
+
 server.listen(5050, (err) => {
   if(err) {
     return `Erro ${err}`

@@ -1,26 +1,7 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="reset.css">
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-  <link rel="shortcut icon" type="image/x-icon" href="./assets/logoFoodfy.ico">
-  <title>Foodfy - Home</title>
-</head>
-<body>
-  <header>
-    <div>
-      <a href="./"><img src="logo.png" alt="Logo Foodfy"></a>
-      <nav id="navbar">
-        <a href="sobre.html">Sobre</a>
-        <a href="receitas.html">Receitas</a>
-      </nav>
-    </div>
-  </header>
+{% extends "layout.njk"%}
+
+
+{%block content%}
   <main>
     <section>
 
@@ -105,10 +86,5 @@
     </div>
 
   </main>
-
-  <footer>
-    <p> &copy;Todos direitos reservados, receitas Foodfy 2020</p>
-  </footer>
-  <script src="indexscript.js"></script>
-</body>
-</html>
+{%endblock%}
+  
