@@ -26,6 +26,15 @@ server.get('/receitas', (req, res) => {
   return res.render('receitas',{css:"receitas.css"})
 })
 
+server.get('/receitas/:index', (req, res) => {
+  const recipes = data;
+  const recipeIndex = req.params.index
+
+  console.log(recipes[recipeIndex])
+
+  return res.render('receita', {recipes, recipeIndex})
+})
+
 server.use((req, res) => {
   return res.status(404).render('not-found', {css:"style.css"});
 })
