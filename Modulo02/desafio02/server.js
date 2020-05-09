@@ -2,7 +2,7 @@ const express = require('express');
 const nunjucks = require('nunjucks');
 
 const server = express();
-const port = 5050
+const PORT = 5050
 const data = require('./data');
 
 server.use(express.static('public'));
@@ -15,33 +15,36 @@ nunjucks.configure('views', {
 })
 
 server.get('/', (req, res) => {
-  return res.render('index', {css:"style.css"});
+  return res.render('index', {css:"/style.css"});
 })
 
 server.get('/sobre', (req, res) => {
-  return res.render('sobre', {css:"sobrestyle.css"})
+  return res.render('sobre', {css:"/sobrestyle.css"})
 })
 
 server.get('/receitas', (req, res) => {
-  return res.render('receitas',{css:"receitas.css"})
+  return res.render('receitas',{css:"/receitas.css"})
 })
 
-server.get('/receitas/:index', (req, res) => {
+server.get('/receita/:index', (req, res) => {
   const recipes = data;
   const recipeIndex = req.params.index
+  const filterRecipe = recipes.find(recipe => recipe.title === recipeIndex)
 
-  console.log(recipes[recipeIndex])
+  if(!filterRecipe) {
+    return res.status(404).render('not-found', {css:"/style.css"});
+  }
 
-  return res.render('receita', {recipes, recipeIndex})
+  return res.render('receita', {filterRecipe, css:"/receita.css"})
 })
 
 server.use((req, res) => {
-  return res.status(404).render('not-found', {css:"style.css"});
+  return res.status(404).render('not-found', {css:"/style.css"});
 })
 
-server.listen(5050, (err) => {
+server.listen(PORT, (err) => {
   if(err) {
     return `Erro ${err}`
   }
-  console.log(`Servidor rodando na porta ${port}`)
+  console.log(`Servidor rodando na porta ${PORT}`)
 })

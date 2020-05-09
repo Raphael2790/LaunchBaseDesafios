@@ -59,6 +59,7 @@ footer {
   vertical-align: middle;
   position: absolute;
   left: 0;
+  height: 50px;
 }
 
 footer p {
@@ -66,5 +67,5 @@ footer p {
   font-size: 14px;
   line-height: 16px;
   color: #999999;
-  padding: 1em 0 1em 0;
+  padding: 0.3em 0 0.3em 0;
 }

@@ -3,7 +3,58 @@
 {%block content%}
 
 <main>
+  <div class="container">
+    <div class="image">
+      <img src="{{filterRecipe.image}}" alt="">
+    </div>
+    
+    <div class="title">
+      <h2>{{filterRecipe.title}}</h2>
+      <small>por {{recipes[recipeIndex].author}}</small>
+    </div>
 
+    <div class="ingredients">
+        <h3>Ingredientes<span class="span">Esconder</span></h3>
+
+        <div class="hidden hide">
+        </div>
+
+        <div class="show">
+        <ul>
+          {% for ingredient in filterRecipe.ingredients %}
+            <li>{{ingredient}}</li>
+          {% endfor %}
+        </ul>
+        </div>
+    </div>
+
+    <div class="prepare">
+      <h3>Modo de Preparo<span class="span">Esconder</span></h3>
+
+      <div class="hidden hide">
+      </div>
+
+      <div class="show">
+        <ul>
+          {%for preparation in filterRecipe.preparation %}
+            <li>{{preparation}}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <div class="information">
+      <h3>Informações Adicionais<span class="span">Esconder</span></h3>
+
+      <div class="hidden hide">
+      </div>
+      
+      <div class="show">
+        <p>{{filterRecipe.information}}</p>
+      </div>
+    </div>
+
+  </div>
 </main>
 
 {%endblock%}
