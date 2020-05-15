@@ -15,10 +15,6 @@ nunjucks.configure('views',{
 })
 
 
-server.use(function(req, res) {
-  return res.status(404).render("not-found",{navbar:data.navbar} );
-});
-
 server.listen(5000, (err) => {
   if(err) {
     return `Erro ${err}`
