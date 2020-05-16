@@ -35,3 +35,5 @@ Modulo 3 ( Back End)
 
 *transition: (qual o elemento que recebe o evento ex:width ou all) (tempo de duração ex: 700ms) (velocidade de inicio e fim ex:easy-in-out)
 (delay de inicio ex:1s)
+
+*box-shadow: 2px(eixo x) 2px(eixo y) 2px(blur=borrar) 2px(spread) color
