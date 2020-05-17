@@ -1,4 +1,5 @@
-const express = require('express')
+const express = require('express');
+const instructors = require('./instructors')
 
 const routes = express.Router();
 
@@ -13,6 +14,12 @@ routes.get('/instructors', (req, res) => {
 routes.get('/members', (req, res) => {
   return res.render('members')
 });
+
+routes.get('/instructors/create', (req,res) => {
+  return res.render('instructors/create')
+});
+
+routes.post('/instructors', instructors.post )
 
 routes.get('/desafios', (req, res) => {
   return res.render('desafios/index')

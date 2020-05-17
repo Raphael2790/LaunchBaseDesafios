@@ -37,3 +37,29 @@ Modulo 3 ( Back End)
 (delay de inicio ex:1s)
 
 *box-shadow: 2px(eixo x) 2px(eixo y) 2px(blur=borrar) 2px(spread) color
+
+*animation-name: up (nome da animação);
+*animation-duration: 200ms (tempo de duração da animação)
+*animation-fill-mode: backwards ( retorna ao estado inicial da animação)
+forwards (mantem o estado final da animação)
+*animation-timing-function: ease, ease-in-out, ease-out (ajusta a velocidade de entrada e saida da animação)
+*animation-delay: 1s (delay inicial para começar a animação)
+*animation-playstate: running (rodando), paused (espera algum comando para iniciar a animação)
+*animation-direction: reverse (faz a animação rodar inversa)
+*animation-interation-count: infinite (faz a animação ficar continua) ou um numero 3
+
+*:last-child (aplica o css no ultimo filho do elemento)
+*:first-child (aplica o css somente no primeiro filho)
+
+*transform: translateY(15px) (irá se deslocar no eixo y em 15px)
+
+@keyframe up {
+  from {
+    (estado inicial, podemos declarar ambos estados com % para modificar mais do que 2 estados durante a animação)
+  } 
+  to {
+    (estado final)
+  }
+}
+
+*server.use(express.urlencoded({extend:true})) (para o servidor começar a interpretar as informações passa no corpo da requisição)
