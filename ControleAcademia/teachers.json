@@ -1,0 +1,24 @@
+{
+  "teachers": [
+    {
+      "id": 1,
+      "avatar_url": "https://www.google.com",
+      "name": "Raphael ",
+      "birth": 1589328000000,
+      "grade": "doutorado",
+      "classmodel": "Presencial",
+      "lessioning": "Matematica, Português",
+      "created_at": 1590093580964
+    },
+    {
+      "id": 2,
+      "avatar_url": "https://www.google.com",
+      "name": "RAPHAEL SILVESTRE DOS SANTOS",
+      "birth": 1590710400000,
+      "grade": "ensino superior completo",
+      "classmodel": "EAD",
+      "lessioning": "Matematica, Português",
+      "created_at": 1590093631248
+    }
+  ]
+}
