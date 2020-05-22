@@ -12,6 +12,7 @@ routes.get('/instructors', (req, res) => {
   return res.render('instructors/index');
 });
 
+
 routes.get('/members', (req, res) => {
   return res.render('members');
 });
@@ -19,6 +20,8 @@ routes.get('/members', (req, res) => {
 routes.get('/instructors/create', (req,res) => {
   return res.render('instructors/create');
 });
+
+routes.get('/instructors/:id', instructors.show)
 
 routes.post('/instructors', instructors.post )
 
