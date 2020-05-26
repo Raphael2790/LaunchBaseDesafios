@@ -1,6 +1,6 @@
 const fs = require('fs');
 const data = require('./teachers.json');
-const { split, age } = require('./utils')
+const { split, age, graduation} = require('./utils')
 
 exports.post = (req, res) => {
   const keys = Object.keys(req.body)
@@ -49,8 +49,13 @@ exports.show = (req, res) => {
     return res.send("Não foi encontrado o professor solicitado")
   }
 
+  console.log(typeof foundTeacher.grade)
+  console.log(graduation(foundTeacher.grade))
+
+
   const teacher = {
     ...foundTeacher,
+    grade:graduation(foundTeacher.grade),
     lessioning:split(foundTeacher.lessioning),
     created_at:new Intl.DateTimeFormat("pt-BR").format(foundTeacher.created_at),
     birth:age(foundTeacher.birth)

@@ -26,5 +26,14 @@ module.exports = {
   },
   split: function(string) {
     return string.split(',')
+  },
+  graduation: function(string) {
+    const graduations = [ "Médio", "Superior", "Doutorado", "Mestrado"]
+
+    const grade = graduations.filter((item) => {
+      if(string.indexOf(item) > -1) return item})
+
+      return grade
   }
 }
+
