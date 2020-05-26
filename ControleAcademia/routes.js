@@ -21,11 +21,11 @@ routes.get('/instructors/create', (req,res) => {
   return res.render('instructors/create');
 });
 
-routes.get('/instructors/:id', instructors.show)
+routes.get('/instructors/:id', instructors.show);
 
-routes.get('/instructors/:id/edit', instructors.edit)
+routes.get('/instructors/:id/edit', instructors.edit);
 
-routes.post('/instructors', instructors.post )
+routes.post('/instructors', instructors.post );
 
 routes.get('/desafios', (req, res) => {
   return res.render('desafios/index');
@@ -36,5 +36,7 @@ routes.get('/desafios/create', (req,res) => {
 })
 
 routes.post('/desafios', teachers.post );
+
+routes.get('/desafios/:id', teachers.show);
 
 module.exports = routes;

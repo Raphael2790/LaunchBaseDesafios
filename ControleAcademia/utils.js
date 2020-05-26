@@ -23,5 +23,8 @@ module.exports = {
     const day = `0${date.getUTCDate()}`.slice(-2);
 
     return `${year}-${month}-${day}`
+  },
+  split: function(string) {
+    return string.split(',')
   }
 }
