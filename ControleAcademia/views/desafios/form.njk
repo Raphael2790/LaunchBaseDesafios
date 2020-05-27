@@ -29,10 +29,21 @@
         <div>
           <select name="grade">
           <optgroup>
-          <option  selected>Ensino Médio Completo</option>
-          <option >Ensino Superior Completo</option>
-          <option >Mestrado</option>
-          <option >Doutorado</option>
+          <option 
+          {% if teacher.grade == "Médio" %}
+            selected
+          {% endif %}>
+          Ensino Médio Completo
+          </option>
+          <option {% if teacher.grade == "Superior" %}
+            selected
+          {% endif %}>Ensino Superior Completo</option>
+          <option {% if teacher.grade == "Mestrado" %}
+            selected
+          {% endif %}>Mestrado</option>
+          <option {% if teacher.grade == "Doutorado" %}
+            selected
+          {% endif %}>Doutorado</option>
           </optgroup>
           </select>
         </div>
@@ -40,13 +51,32 @@
 
       <div class="itens">
         <div>Tipo de aula</div>
-        <span><input type="radio" name="classmodel" value="Presencial" checked>Presencial</span>
-        <span><input type="radio" name="classmodel" value="EAD">À Distância</span>
+        <span>
+          <input 
+          type="radio" 
+          name="classmodel" 
+          value="Presencial" 
+          {% if teacher.classmodel == "Presencial" %}
+          checked
+          {% endif %}>
+          Presencial
+          </span>
+        <span><input 
+        type="radio" 
+        name="classmodel" 
+        value="EAD"
+        {% if teacher.classmodel == "EAD" %}
+          checked
+        {% endif %}>À Distância</span>
       </div>
 
       <div class="itens">
         <div>Area de atuação</div>
-        <input type="text" name="lessioning" placeholder="Digite aqui as matérias que irá lecionar...">
+        <input 
+        type="text" 
+        name="lessioning" 
+        placeholder="Digite aqui as matérias que irá lecionar..."
+        value="{{teacher.lessioning}}">
       </div>
 
       <button type="submit">Salvar</button>
