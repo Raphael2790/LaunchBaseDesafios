@@ -1,6 +1,6 @@
 const fs = require('fs');
 const data = require('./teachers.json');
-const { split, age, graduation} = require('./utils')
+const { split, age, graduation, date} = require('./utils')
 
 exports.post = (req, res) => {
   const keys = Object.keys(req.body)
@@ -62,4 +62,22 @@ exports.show = (req, res) => {
   }
 
   res.render('desafios/show', {teacher})
+}
+
+exports.edit = (req, res) => {
+
+  const { id } = req.params;
+
+  const foundTeacher = data.teachers.find(teacher => teacher.id == id);
+
+  if(!foundTeacher) {
+    return res.send("Nenhum professor foi encontrado")
+  }
+
+  const teacher = {
+    ...foundTeacher,
+    birth: date(foundTeacher.birth)
+  }
+
+  return res.render('desafios/edit', {teacher})
 }

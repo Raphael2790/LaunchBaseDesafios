@@ -39,4 +39,6 @@ routes.post('/desafios', teachers.post );
 
 routes.get('/desafios/:id', teachers.show);
 
+routes.get('/desafios/:id/edit', teachers.edit);
+
 module.exports = routes;
