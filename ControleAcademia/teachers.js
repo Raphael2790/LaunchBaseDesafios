@@ -49,10 +49,6 @@ exports.show = (req, res) => {
     return res.send("Não foi encontrado o professor solicitado")
   }
 
-  console.log(typeof foundTeacher.grade)
-  console.log(graduation(foundTeacher.grade))
-
-
   const teacher = {
     ...foundTeacher,
     grade:graduation(foundTeacher.grade),
