@@ -9,7 +9,7 @@
 {% endblock header %}
 
 {%block content%}
-  <form action="/desafios" method="POST" class="card-teacher">
+  <form action="/desafios?_method=PUT" method="POST" class="card-teacher">
     <section class="avatar-teacher" style="background: url(https://source.unsplash.com/collection/8360382/400x400) no-repeat center center / cover">
 
     </section>
@@ -19,6 +19,8 @@
       <h3>Editar Professor</h3>
       
       {%include 'desafios/form.njk'%}
+
+      <input type="hidden" name="id" value="{{teacher.id}}">
       
     </section>
 

@@ -77,3 +77,36 @@ exports.edit = (req, res) => {
 
   return res.render('desafios/edit', {teacher})
 }
+
+exports.put = (req, res) => {
+
+  const { id } = req.body;
+  let index;
+
+  const foundTeacher = data.teachers.find(function (instructor, foundIndex) {
+    if(instructor.id == id) {
+      index = foundIndex;
+      return true;
+   }
+  } 
+ )
+
+  if(!foundTeacher) {
+    return res.send("Não foi possivel editar");
+  }
+
+  const teacher = {
+    ...foundTeacher,
+    ...req.body,
+    id:Number(req.body.id),
+    birth: Date.parse(req.body.birth)
+  }
+
+  data.teachers[index] = teacher;
+
+  fs.writeFile("data.json", JSON.stringify(data, null,2), function(err) {
+    if(err) return res.send("Não foi possível reescrever o arquivo");
+
+    return res.redirect(`/desafios/${id}`);
+  })
+}
