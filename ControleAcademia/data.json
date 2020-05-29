@@ -35,15 +35,6 @@
       "gender": "M",
       "services": "gggg, hhha",
       "created_at": 1590659314134
-    },
-    {
-      "id": 5,
-      "avatar_url": "https://source.unsplash.com/collection/3465564/500x500",
-      "name": "Raphael SS",
-      "birth": 1589241600000,
-      "gender": "M",
-      "services": "gggg",
-      "created_at": 1590661895262
     }
   ]
 }
