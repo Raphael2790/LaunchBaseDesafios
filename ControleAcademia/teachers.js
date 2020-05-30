@@ -104,7 +104,7 @@ exports.put = (req, res) => {
 
   data.teachers[index] = teacher;
 
-  fs.writeFile("data.json", JSON.stringify(data, null,2), function(err) {
+  fs.writeFile("teachers.json", JSON.stringify(data, null,2), function(err) {
     if(err) return res.send("Não foi possível reescrever o arquivo");
 
     return res.redirect(`/desafios/${id}`);
