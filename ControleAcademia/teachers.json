@@ -3,16 +3,6 @@
     {
       "id": 1,
       "avatar_url": "https://source.unsplash.com/collection/8360382/400x400",
-      "name": "Raphael SSS",
-      "birth": 1589328000000,
-      "grade": "Doutorado",
-      "classmodel": "Presencial",
-      "lessioning": "Matematica, Português",
-      "created_at": 1590093580964
-    },
-    {
-      "id": 2,
-      "avatar_url": "https://source.unsplash.com/collection/8360382/400x400",
       "name": "RAPHAEL SILVESTRE DOS SANTOS",
       "birth": 1590710400000,
       "grade": "Superior",
@@ -21,7 +11,7 @@
       "created_at": 1590093631248
     },
     {
-      "id": 3,
+      "id": 2,
       "avatar_url": "https://source.unsplash.com/collection/8360382/400x400",
       "name": "Monica",
       "birth": 782611200000,

@@ -110,3 +110,22 @@ exports.put = (req, res) => {
     return res.redirect(`/desafios/${id}`);
   })
 }
+
+exports.delete = (req, res) => {
+
+  const { id } = req.body;
+
+  const filteredTeachers = data.teachers.filter(teacher => {
+    return teacher.id != id;
+  })
+
+  data.teachers = filteredTeachers;
+
+  fs.writeFile("teachers.json", JSON.stringify(data, null, 2), function(err) {
+    if(err) {
+      return res.send("Erro ao escrever o arquivo");
+    }
+
+    return res.redirect('/desafios')
+  })
+}

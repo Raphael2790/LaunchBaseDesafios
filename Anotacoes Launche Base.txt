@@ -63,3 +63,5 @@ forwards (mantem o estado final da animação)
 }
 
 *server.use(express.urlencoded({extend:true})) (para o servidor começar a interpretar as informações passa no corpo da requisição)
+
+*um button de um form não precisa estar dentro do formulario, porem precisa referencia ele passando o parametro form o identificador do formulario
