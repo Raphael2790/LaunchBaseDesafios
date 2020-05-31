@@ -7,7 +7,7 @@
       "birth": 1589241600000,
       "gender": "M",
       "services": [
-        "gggg"
+        "MMA"
       ],
       "created_at": 1589754430743
     },
@@ -18,8 +18,8 @@
       "birth": 1590710400000,
       "gender": "F",
       "services": [
-        "gggg",
-        "hhha"
+        "MMA",
+        "Taewkondo"
       ],
       "created_at": 1590178455605
     },
@@ -42,8 +42,8 @@
       "birth": 1590710400000,
       "gender": "M",
       "services": [
-        "gggg",
-        "hhha"
+        "Boxing",
+        "Musculação"
       ],
       "created_at": 1590659314134
     },
@@ -54,7 +54,7 @@
       "birth": 1589241600000,
       "gender": "M",
       "services": [
-        "gggg"
+        "Luta Romana"
       ],
       "created_at": 1590661895262
     },

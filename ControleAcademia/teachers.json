@@ -7,7 +7,7 @@
       "birth": 1590710400000,
       "grade": "Superior",
       "classmodel": "EAD",
-      "lessioning": "Matematica, Português",
+      "lessioning": ["Matematica", "Português", "Inglês"],
       "created_at": 1590093631248
     },
     {
@@ -17,7 +17,7 @@
       "birth": 782611200000,
       "grade": "Médio",
       "classmodel": "Presencial",
-      "lessioning": "Matematica, Português",
+      "lessioning": ["Matematica", "Português"],
       "created_at": 1590488866086
     }
   ]

@@ -28,9 +28,7 @@ routes.put('/instructors', instructors.put);
 
 routes.delete('/instructors', instructors.delete);
 
-routes.get('/desafios', (req, res) => {
-  return res.render('desafios/index');
-})
+routes.get('/desafios', teachers.index);
 
 routes.get('/desafios/create', (req,res) => {
   return res.render('desafios/create');

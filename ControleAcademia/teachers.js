@@ -1,6 +1,13 @@
 const fs = require('fs');
 const data = require('./teachers.json');
-const { split, age, graduation, date} = require('./utils')
+const { split, age, graduation, date} = require('./utils');
+
+exports.index = (req, res) => {
+
+
+
+  return res.render('desafios/index', {teachers: data.teachers});
+}
 
 exports.post = (req, res) => {
   const keys = Object.keys(req.body)
@@ -12,6 +19,7 @@ exports.post = (req, res) => {
 
   let { avatar_url, name, birth, grade, classmodel, lessioning } = req.body;
 
+  lessioning = lessioning.split(',').trim();
   birth = Date.parse(birth);
   const created_at = Date.now();
   const id = Number(data.teachers.length +1);
@@ -52,7 +60,6 @@ exports.show = (req, res) => {
   const teacher = {
     ...foundTeacher,
     grade:graduation(foundTeacher.grade),
-    lessioning:split(foundTeacher.lessioning),
     created_at:new Intl.DateTimeFormat("pt-BR").format(foundTeacher.created_at),
     birth:age(foundTeacher.birth)
   }
