@@ -4,11 +4,6 @@ const { age , date } = require('./utils');
 
 exports.index = (req, res) => {
 
-  const { services } = data.instructors
-
-  console.log(services);
-
-
   return res.render('instructors/index', {instructors: data.instructors});
 }
 
@@ -28,7 +23,6 @@ exports.show = (req, res) => {
   const instructor = {
     ...foundInstructor,
     age:age(foundInstructor.birth),
-    services:foundInstructor.services.split(","),
     created_at:new Intl.DateTimeFormat("pt-BR").format(foundInstructor.created_at)
   }
   
@@ -46,9 +40,10 @@ exports.post = (req, res) => {
   
   let {avatar_url, name, birth, gender, services} = req.body
 
-  birth = Date.parse(birth)
-  const created_at = Date.now()
-  const id = Number(data.instructors.length + 1)
+  services = services.split(',').trim();
+  birth = Date.parse(birth);
+  const created_at = Date.now();
+  const id = Number(data.instructors.length + 1);
 
   data.instructors.push({
     id,

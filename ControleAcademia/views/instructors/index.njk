@@ -13,7 +13,7 @@
       <thead>
         <tr>
           <th>Instrutor</th>
-          <th>Seviços</th>
+          <th>Serviços</th>
           <th>Ação</th>
         </tr>
       </thead>
@@ -24,7 +24,7 @@
             <span style="background-image: url({{instructor.avatar_url}})"></span>
           {{instructor.name}}</td>
           <td>
-            {%for service in services%}
+            {%for service in instructor.services%}
               <span>{{service}}</span>
             {% endfor %}
           </td>
