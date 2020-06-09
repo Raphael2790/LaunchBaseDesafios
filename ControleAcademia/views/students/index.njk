@@ -3,8 +3,8 @@
 {% block header %}
 
 <div class="links-desafios">
-  <a href="/" class="active">Teachers</a>
-  <a href="/members">Students</a>
+  <a href="/teachers" class="active">Teachers</a>
+  <a href="/students">Students</a>
 </div>
 {% endblock header %}
 
@@ -18,11 +18,11 @@
           <th class="head">Ação</th>
       </thead>
           <tbody>
-            {% for teacher in teachers %}
+            {% for student in students %}
               <tr>
-                <td><span style="background-image: url({{teacher.avatar_url}})"></span>{{teacher.name}}</td>
+                <td><span style="background-image: url({{student.avatar_url}})"></span>{{student.name}}</td>
                 <td class="spans">
-                  {% for lession in teacher.lessioning %}
+                  {% for lession in student.lessioning %}
                     <span>{{lession}}</span>
                   {% endfor %}
                 </td>

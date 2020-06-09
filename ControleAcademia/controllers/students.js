@@ -6,7 +6,11 @@ exports.index = (req, res) => {
 
 
 
-  return res.render('desafios/index', {students: data.students});
+  return res.render('students/index', {students: data.students});
+}
+
+exports.create = (req, res) => {
+  return res.render('students/create')
 }
 
 exports.post = (req, res) => {
@@ -40,7 +44,7 @@ exports.post = (req, res) => {
       return res.send("Ocorreu um erro ao gravar o arquivo")
     }
 
-    return res.redirect('desafios')
+    return res.redirect('students')
   })
 
 }
@@ -49,40 +53,40 @@ exports.show = (req, res) => {
 
   const { id } = req.params
 
-  const foundTeacher = data.students.find(student => 
+  const foundStudent = data.students.find(student => 
     student.id == id
   )
 
-  if(!foundTeacher) {
+  if(!foundStudent) {
     return res.send("Não foi encontrado o professor solicitado")
   }
 
   const student = {
-    ...foundTeacher,
-    grade:graduation(foundTeacher.grade),
-    created_at:new Intl.DateTimeFormat("pt-BR").format(foundTeacher.created_at),
-    birth:age(foundTeacher.birth)
+    ...foundStudent,
+    grade:graduation(foundStudent.grade),
+    created_at:new Intl.DateTimeFormat("pt-BR").format(foundStudent.created_at),
+    birth:age(foundStudent.birth)
   }
 
-  res.render('desafios/show', {student})
+  res.render('students/show', {student})
 }
 
 exports.edit = (req, res) => {
 
   const { id } = req.params;
 
-  const foundTeacher = data.students.find(student => student.id == id);
+  const foundStudent = data.students.find(student => student.id == id);
 
-  if(!foundTeacher) {
+  if(!foundStudent) {
     return res.send("Nenhum professor foi encontrado")
   }
 
   const student = {
-    ...foundTeacher,
-    birth: date(foundTeacher.birth)
+    ...foundStudent,
+    birth: date(foundStudent.birth)
   }
 
-  return res.render('desafios/edit', {student})
+  return res.render('students/edit', {student})
 }
 
 exports.put = (req, res) => {
@@ -90,20 +94,20 @@ exports.put = (req, res) => {
   const { id } = req.body;
   let index;
 
-  const foundTeacher = data.students.find(function (instructor, foundIndex) {
-    if(instructor.id == id) {
+  const foundStudent = data.students.find(function (student, foundIndex) {
+    if(student.id == id) {
       index = foundIndex;
       return true;
    }
   } 
  )
 
-  if(!foundTeacher) {
+  if(!foundStudent) {
     return res.send("Não foi possivel editar");
   }
 
   const student = {
-    ...foundTeacher,
+    ...foundStudent,
     ...req.body,
     id:Number(req.body.id),
     birth: Date.parse(req.body.birth)
@@ -114,7 +118,7 @@ exports.put = (req, res) => {
   fs.writeFile("schoolRegister.json", JSON.stringify(data, null,2), function(err) {
     if(err) return res.send("Não foi possível reescrever o arquivo");
 
-    return res.redirect(`/desafios/${id}`);
+    return res.redirect(`/students/${id}`);
   })
 }
 
@@ -122,17 +126,17 @@ exports.delete = (req, res) => {
 
   const { id } = req.body;
 
-  const filteredTeachers = data.students.filter(student => {
+  const filteredStudents = data.students.filter(student => {
     return student.id != id;
   })
 
-  data.students = filteredTeachers;
+  data.students = filteredStudents;
 
   fs.writeFile("schoolRegister.json", JSON.stringify(data, null, 2), function(err) {
     if(err) {
       return res.send("Erro ao escrever o arquivo");
     }
 
-    return res.redirect('/desafios')
+    return res.redirect('/students');
   })
 }

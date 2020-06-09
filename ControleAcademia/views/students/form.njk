@@ -4,7 +4,7 @@
         type="url" 
         name="avatar_url" 
         placeholder="Ex:https://"
-        value="{{teacher.avatar_url}}">
+        value="{{student.avatar_url}}">
       </div>
 
       <div class="itens">
@@ -13,7 +13,7 @@
         type="text" 
         name="name" 
         placeholder="Seu nome completo..."
-        value="{{teacher.name}}">
+        value="{{student.name}}">
       </div>
 
       <div class="itens">
@@ -21,7 +21,7 @@
         <input 
         type="date" 
         name="birth"
-        value="{{teacher.birth}}">
+        value="{{student.birth}}">
       </div>
 
       <div class="itens">
@@ -30,18 +30,18 @@
           <select name="grade">
           <optgroup>
           <option 
-          {% if teacher.grade == "Médio" %}
+          {% if student.grade == "Médio" %}
             selected
           {% endif %}>
           Ensino Médio Completo
           </option>
-          <option {% if teacher.grade == "Superior" %}
+          <option {% if student.grade == "Superior" %}
             selected
           {% endif %}>Ensino Superior Completo</option>
-          <option {% if teacher.grade == "Mestrado" %}
+          <option {% if student.grade == "Mestrado" %}
             selected
           {% endif %}>Mestrado</option>
-          <option {% if teacher.grade == "Doutorado" %}
+          <option {% if student.grade == "Doutorado" %}
             selected
           {% endif %}>Doutorado</option>
           </optgroup>
@@ -56,7 +56,7 @@
           type="radio" 
           name="classmodel" 
           value="Presencial" 
-          {% if teacher.classmodel == "Presencial" %}
+          {% if student.classmodel == "Presencial" %}
           checked
           {% endif %}>
           Presencial
@@ -65,7 +65,7 @@
         type="radio" 
         name="classmodel" 
         value="EAD"
-        {% if teacher.classmodel == "EAD" %}
+        {% if student.classmodel == "EAD" %}
           checked
         {% endif %}>À Distância</span>
       </div>
@@ -76,7 +76,7 @@
         type="text" 
         name="lessioning" 
         placeholder="Digite aqui as matérias que irá lecionar..."
-        value="{{teacher.lessioning}}">
+        value="{{student.lessioning}}">
       </div>
 
       

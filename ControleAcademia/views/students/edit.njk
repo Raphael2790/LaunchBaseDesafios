@@ -3,8 +3,8 @@
 {% block header %}
 
 <div class="links-desafios">
-  <a href="/" class="active">Teachers</a>
-  <a href="/members">Students</a>
+  <a href="/teachers" class="active">Teachers</a>
+  <a href="/students">Students</a>
 </div>
 {% endblock header %}
 
@@ -23,7 +23,7 @@
 
         <h3>Editar Professor</h3>
         
-        {%include 'desafios/form.njk'%}
+        {%include 'students/form.njk'%}
 
         <div class="buttons">
 
@@ -33,13 +33,13 @@
         
         </div>
 
-        <input type="hidden" name="id" value="{{teacher.id}}">
+        <input type="hidden" name="id" value="{{student.id}}">
         
       </form>
 
-      <form class="form-delete" id="form-delete" action="/desafios?_method=DELETE" method="post">
+      <form class="form-delete" id="form-delete" action="/students?_method=DELETE" method="post">
 
-        <input type="hidden" name="id" value="{{teacher.id}}">
+        <input type="hidden" name="id" value="{{student.id}}">
 
         
       

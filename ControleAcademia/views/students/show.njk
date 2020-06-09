@@ -3,14 +3,14 @@
 {% block header %}
 
 <div class="links-desafios">
-  <a href="/" class="active">Teachers</a>
-  <a href="/members">Students</a>
+  <a href="/teachers" class="active">Teachers</a>
+  <a href="/students">Students</a>
 </div>
 {% endblock header %}
 
 {%block content%}
   <div class="card-teacher">
-  <section class="avatar-teacher" style="background: url({{teacher.avatar_url}}) no-repeat center center / cover">
+  <section class="avatar-teacher" style="background: url({{student.avatar_url}}) no-repeat center center / cover">
 
   </section>
 
@@ -20,23 +20,23 @@
 
     <div class="itens">
       <div>Professor</div>
-      <div>{{teacher.name}}</div>
+      <div>{{student.name}}</div>
     </div>
 
     <div class="itens">
       <div>Idade</div>
-      <div>{{teacher.birth}}</div>
+      <div>{{student.birth}}</div>
     </div>
 
     <div class="itens">
       <div>Grau de Escolaridade</div>
-      <div>{{teacher.grade}}</div>
+      <div>{{student.grade}}</div>
     </div>
 
     <div class="itens">
     <div>Acompanhamento</div>
       <div>
-        {% for lession in teacher.lessioning %}
+        {% for lession in student.lessioning %}
         <span>{{lession}}</span>
         {% endfor %}
       </div>
@@ -44,10 +44,10 @@
 
     <div class="itens">
       <div>Desde</div>
-      <div>{{teacher.created_at}}</div>
+      <div>{{student.created_at}}</div>
     </div>
 
-    <a href="/desafios/{{teacher.id}}/edit" class="button">Editar</a>
+    <a href="/desafios/{{student.id}}/edit" class="button">Editar</a>
 
   </section>
 

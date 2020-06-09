@@ -9,6 +9,10 @@ exports.index = (req, res) => {
   return res.render('teachers/index', {teachers: data.teachers});
 }
 
+exports.create = (req,res) => {
+  return res.render('teachers/create');
+}
+
 exports.post = (req, res) => {
   const keys = Object.keys(req.body)
 
@@ -90,8 +94,8 @@ exports.put = (req, res) => {
   const { id } = req.body;
   let index;
 
-  const foundTeacher = data.teachers.find(function (instructor, foundIndex) {
-    if(instructor.id == id) {
+  const foundTeacher = data.teachers.find(function (teacher, foundIndex) {
+    if(teacher.id == id) {
       index = foundIndex;
       return true;
    }
