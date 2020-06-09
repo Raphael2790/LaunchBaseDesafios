@@ -13,24 +13,24 @@
     <a href="/members/create">Novo</a>
     <table width="100%">
       <thead>
-        <tr>
-          <th>Instrutor</th>
-          <th>Serviços</th>
+        <tr class="tr-members">
+          <th>Membro</th>
+          <th>Email</th>
+          <th>Peso</th>
+          <th>Altura</th>
           <th>Ação</th>
         </tr>
       </thead>
       <tbody> 
-        {%for instructor in instructors%}
-          <tr>
+        {%for member in members%}
+          <tr class="tr-members">
           <td>
-            <span style="background-image: url({{instructor.avatar_url}})"></span>
-          {{instructor.name}}</td>
-          <td>
-            {%for service in instructor.services%}
-              <span>{{service}}</span>
-            {% endfor %}
-          </td>
-          <td><a href="/instructors/{{instructor.id}}">ver</a></td>
+            <span style="background-image: url({{member.avatar_url}})"></span>
+          {{member.name}}</td>
+          <td>{{member.email}}</td>
+          <td>{{member.weight}}(kg)</td>
+          <td>{{member.height}}(m)</td>
+          <td><a href="/members/{{member.id}}">ver</a></td>
           </tr>
         {% endfor %}
       </tbody>

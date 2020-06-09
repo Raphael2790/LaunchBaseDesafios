@@ -131,7 +131,7 @@ h3 {
 
 /* === Form === */
 
-input {
+input, select{
   width: 100%;
   color: #555;
   font-weight: bold;
@@ -207,6 +207,11 @@ th {
 tr{
   display: grid;
   grid-template-columns: 300px 300px 150px;
+}
+
+.tr-members{
+  display: grid;
+  grid-template-columns: 200px 200px 100px 100px 100px;
 }
 
 td, th {

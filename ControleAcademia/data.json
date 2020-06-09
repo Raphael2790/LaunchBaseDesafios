@@ -3,17 +3,6 @@
     {
       "id": 1,
       "avatar_url": "https://source.unsplash.com/collection/8360382/400x400",
-      "name": "Marco M da Silva",
-      "birth": 530150400000,
-      "email": "rssshev@gmail.com",
-      "gender": "M",
-      "weight": "90,2",
-      "height": "1,72",
-      "blood": "B0"
-    },
-    {
-      "id": 2,
-      "avatar_url": "https://source.unsplash.com/collection/8360382/400x400",
       "name": "Marcelo Miquelin",
       "birth": 339984000000,
       "email": "rssshev@gmail.com",
@@ -70,29 +59,6 @@
         "Musculação"
       ],
       "created_at": 1590659314134
-    },
-    {
-      "id": 5,
-      "avatar_url": "https://source.unsplash.com/collection/3465564/500x500",
-      "name": "Raphael SS",
-      "birth": 1589241600000,
-      "gender": "M",
-      "services": [
-        "Luta Romana"
-      ],
-      "created_at": 1590661895262
-    },
-    {
-      "id": 6,
-      "avatar_url": "https://source.unsplash.com/collection/8360382/400x400",
-      "name": "Miguel Silva ",
-      "birth": 1465344000000,
-      "gender": "M",
-      "services": [
-        "Boxing",
-        " Jiu-jitsu"
-      ],
-      "created_at": 1590914531289
     }
   ]
 }
