@@ -3,9 +3,24 @@
     {
       "id": 1,
       "avatar_url": "https://source.unsplash.com/collection/8360382/400x400",
-      "name": "Marcelo Miquelin",
+      "name": "Marco M da Silva",
       "birth": 530150400000,
-      "gender": "M"
+      "email": "rssshev@gmail.com",
+      "gender": "M",
+      "weight": "90,2",
+      "height": "1,72",
+      "blood": "B0"
+    },
+    {
+      "id": 2,
+      "avatar_url": "https://source.unsplash.com/collection/8360382/400x400",
+      "name": "Marcelo Miquelin",
+      "birth": 339984000000,
+      "email": "rssshev@gmail.com",
+      "gender": "M",
+      "weight": "82",
+      "height": "1,65",
+      "blood": "B1"
     }
   ],
   "instructors": [
