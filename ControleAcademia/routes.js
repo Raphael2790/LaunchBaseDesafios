@@ -42,20 +42,20 @@ routes.delete('/instructors', instructors.delete);
 
 //Rotas dos Desafios
 
-routes.get('/desafios', teachers.index);
+routes.get('/teachers', teachers.index);
 
-routes.get('/desafios/create', (req,res) => {
-  return res.render('desafios/create');
+routes.get('/teachers/create', (req,res) => {
+  return res.render('teachers/create');
 })
 
-routes.post('/desafios', teachers.post );
+routes.post('/teachers', teachers.post );
 
-routes.get('/desafios/:id', teachers.show);
+routes.get('/teachers/:id', teachers.show);
 
-routes.get('/desafios/:id/edit', teachers.edit);
+routes.get('/teachers/:id/edit', teachers.edit);
 
-routes.put('/desafios', teachers.put);
+routes.put('/teachers', teachers.put);
 
-routes.delete('/desafios', teachers.delete);
+routes.delete('/teachers', teachers.delete);
 
 module.exports = routes;

@@ -1,0 +1,35 @@
+{% extends "layout.njk" %}
+
+{% block header %}
+
+<div class="links-desafios">
+  <a href="/" class="active">Teachers</a>
+  <a href="/members">Students</a>
+</div>
+{% endblock header %}
+
+{%block content%}
+  <div class="card table-container">
+    <table width="100%">
+      <thead>
+        <tr>
+          <th class="head">Nome Completo</th>
+          <th class="head">Acompanhamento</th>
+          <th class="head">Ação</th>
+      </thead>
+          <tbody>
+            {% for teacher in teachers %}
+              <tr>
+                <td><span style="background-image: url({{teacher.avatar_url}})"></span>{{teacher.name}}</td>
+                <td class="spans">
+                  {% for lession in teacher.lessioning %}
+                    <span>{{lession}}</span>
+                  {% endfor %}
+                </td>
+                <td><a href="/teachers/{{teacher.id}}">ver</a></td>
+              </tr>
+            {% endfor %}
+          </tbody>
+    </table>
+  </div>
+{%endblock content%}
