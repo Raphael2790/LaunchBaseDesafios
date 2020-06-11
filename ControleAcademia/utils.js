@@ -25,7 +25,7 @@ module.exports = {
     return {
       iso:`${year}-${month}-${day}`,
       birthDay : `${day}/${month}`,
-      
+      created_at: `${day}/${month}/${year}`
   }
   },
   split: function(string) {

@@ -17,6 +17,15 @@
       </div>
 
       <div class="itens">
+        <div>Email</div>
+        <input 
+        type="email" 
+        name="email" 
+        placeholder="Seu melhor e-mail..."
+        value="{{student.email}}">
+      </div>
+
+      <div class="itens">
         <div>Data de Nascimento</div>
         <input 
         type="date" 
@@ -25,58 +34,64 @@
       </div>
 
       <div class="itens">
-      <div>Grau de escolaridade</div>
+      <div>Ano Escolar</div>
         <div>
           <select name="grade">
           <optgroup>
           <option 
-          {% if student.grade == "Médio" %}
+          {% if student.grade == "5_fundamental" %}
             selected
           {% endif %}>
-          Ensino Médio Completo
+          5° ano do ensino fundamental
           </option>
-          <option {% if student.grade == "Superior" %}
+          <option {% if student.grade == "6_fundamental" %}
             selected
-          {% endif %}>Ensino Superior Completo</option>
-          <option {% if student.grade == "Mestrado" %}
+          {% endif %}>6° ano do ensino fundamental</option>
+          <option {% if student.grade == "7_fundamental" %}
             selected
-          {% endif %}>Mestrado</option>
-          <option {% if student.grade == "Doutorado" %}
+          {% endif %}>7° ano do ensino fundamental</option>
+          <option {% if student.grade == "8_fundamental" %}
             selected
-          {% endif %}>Doutorado</option>
+          {% endif %}>8° ano do ensino fundamental</option>
+          <option 
+          {% if student.grade == "9_fundamental" %}
+            selected
+          {% endif %}>
+          9° ano do ensino fundamental
+          </option>
+          <option 
+          {% if student.grade == "1_medio" %}
+            selected
+          {% endif %}>
+          1° ano do ensino médio
+          </option>
+          <option 
+          {% if student.grade == "2_medio" %}
+            selected
+          {% endif %}>
+          2° ano ensino médio
+          </option>
+          <option 
+          {% if student.grade == "3_medio" %}
+            selected
+          {% endif %}>
+          3° ano ensino médio
+          </option>
           </optgroup>
           </select>
         </div>
       </div>
 
       <div class="itens">
-        <div>Tipo de aula</div>
-        <span>
+        <div>Carga horária semanal</div>
+        <div>
           <input 
-          type="radio" 
-          name="classmodel" 
-          value="Presencial" 
-          {% if student.classmodel == "Presencial" %}
-          checked
-          {% endif %}>
-          Presencial
-          </span>
-        <span><input 
-        type="radio" 
-        name="classmodel" 
-        value="EAD"
-        {% if student.classmodel == "EAD" %}
-          checked
-        {% endif %}>À Distância</span>
+          type="number" 
+          name="hours"
+          value="{{student.hours}}" min="1" max="20">
+        </div>
       </div>
 
-      <div class="itens">
-        <div>Area de atuação</div>
-        <input 
-        type="text" 
-        name="lessioning" 
-        placeholder="Digite aqui as matérias que irá lecionar..."
-        value="{{student.lessioning}}">
-      </div>
+      
 
       

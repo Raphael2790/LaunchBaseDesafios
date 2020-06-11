@@ -1,8 +1,26 @@
 {
-  "students":[
-    
+  "students": [
+    {
+      "id": 1,
+      "avatar_url": "https://source.unsplash.com/collection/8360382/400x400",
+      "name": "RAPHAEL SILVESTRE DOS SANTOS",
+      "email": "rssshev@gmail.com",
+      "birth": 662256000000,
+      "grade": "3° ano ensino médio",
+      "hours": "4",
+      "created_at": 1591834931535
+    },
+    {
+      "id": 2,
+      "avatar_url": "https://source.unsplash.com/collection/8360382/400x400",
+      "name": "Marcelo Miquelin",
+      "email": "rssshev@gmail.com",
+      "birth": 529286400000,
+      "grade": "3° ano ensino médio",
+      "hours": "8",
+      "created_at": 1591835539032
+    }
   ],
-
   "teachers": [
     {
       "id": 1,
@@ -11,7 +29,11 @@
       "birth": 1590710400000,
       "grade": "Superior",
       "classmodel": "EAD",
-      "lessioning": ["Matematica", "Português", "Inglês"],
+      "lessioning": [
+        "Matematica",
+        "Português",
+        "Inglês"
+      ],
       "created_at": 1590093631248
     },
     {
@@ -21,7 +43,10 @@
       "birth": 782611200000,
       "grade": "Médio",
       "classmodel": "Presencial",
-      "lessioning": ["Matematica", "Português"],
+      "lessioning": [
+        "Matematica",
+        "Português"
+      ],
       "created_at": 1590488866086
     }
   ]

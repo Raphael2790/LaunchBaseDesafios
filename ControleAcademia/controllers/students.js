@@ -4,8 +4,6 @@ const { split, age, graduation, date} = require('../utils');
 
 exports.index = (req, res) => {
 
-
-
   return res.render('students/index', {students: data.students});
 }
 
@@ -21,21 +19,23 @@ exports.post = (req, res) => {
       return res.send("Preencha todos os campos por favor");
   }
 
-  let { avatar_url, name, birth, grade, classmodel, lessioning } = req.body;
-
-  lessioning = lessioning.split(',').trim();
-  birth = Date.parse(birth);
+  birth = Date.parse(req.body.birth);
   const created_at = Date.now();
-  const id = Number(data.students.length +1);
+
+  let id = 1;
+
+  const lastMember = data.students[data.students.length - 1]
+
+  if(lastMember) {
+    id = lastMember.id +1
+  }
+
+  id = Number(id);
 
   data.students.push({
     id,
-    avatar_url,
-    name,
+    ...req.body,
     birth,
-    grade,
-    classmodel,
-    lessioning,
     created_at
   });
 
@@ -63,9 +63,9 @@ exports.show = (req, res) => {
 
   const student = {
     ...foundStudent,
-    grade:graduation(foundStudent.grade),
-    created_at:new Intl.DateTimeFormat("pt-BR").format(foundStudent.created_at),
-    birth:age(foundStudent.birth)
+    grade:foundStudent.grade,
+    created_at:date(foundStudent.created_at).created_at,
+    birth:date(foundStudent.birth).birthDay
   }
 
   res.render('students/show', {student})

@@ -3,7 +3,7 @@
 {% block header %}
 
 <div class="links-desafios">
-  <a href="/teachers" class="active">Teachers</a>
+  <a href="/teachers">Teachers</a>
   <a href="/students">Students</a>
 </div>
 {% endblock header %}
@@ -19,12 +19,17 @@
     <h3>Detalhes</h3>
 
     <div class="itens">
-      <div>Professor</div>
+      <div>Nome do estudante</div>
       <div>{{student.name}}</div>
     </div>
 
     <div class="itens">
-      <div>Idade</div>
+      <div>E-mail</div>
+      <div>{{student.email}}</div>
+    </div>
+
+    <div class="itens">
+      <div>Aniversário</div>
       <div>{{student.birth}}</div>
     </div>
 
@@ -34,11 +39,9 @@
     </div>
 
     <div class="itens">
-    <div>Acompanhamento</div>
+    <div>Horas contratadas por semana</div>
       <div>
-        {% for lession in student.lessioning %}
-        <span>{{lession}}</span>
-        {% endfor %}
+        {{student.hours}}
       </div>
     </div>
 
@@ -47,7 +50,7 @@
       <div>{{student.created_at}}</div>
     </div>
 
-    <a href="/desafios/{{student.id}}/edit" class="button">Editar</a>
+    <a href="/students/{{student.id}}/edit" class="button">Editar</a>
 
   </section>
 

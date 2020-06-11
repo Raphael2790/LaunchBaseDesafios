@@ -64,7 +64,7 @@ exports.show = (req, res) => {
   const teacher = {
     ...foundTeacher,
     grade:graduation(foundTeacher.grade),
-    created_at:new Intl.DateTimeFormat("pt-BR").format(foundTeacher.created_at),
+    created_at:date(foundTeacher.created_at).created_at,
     birth:age(foundTeacher.birth)
   }
 
