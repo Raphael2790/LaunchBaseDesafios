@@ -1,6 +1,6 @@
 const fs = require('fs');
 const data = require('../schoolRegister.json');
-const { split, age, graduation, date} = require('../utils');
+const { split, age, graduation, date, grade} = require('../utils');
 
 exports.index = (req, res) => {
 
@@ -36,7 +36,8 @@ exports.post = (req, res) => {
     id,
     ...req.body,
     birth,
-    created_at
+    created_at,
+    hours: Number(req.body.hours)
   });
 
   fs.writeFile("schoolRegister.json",JSON.stringify(data, null, 2),(err) => {
@@ -65,7 +66,8 @@ exports.show = (req, res) => {
     ...foundStudent,
     grade:foundStudent.grade,
     created_at:date(foundStudent.created_at).created_at,
-    birth:date(foundStudent.birth).birthDay
+    birth:date(foundStudent.birth).birthDay,
+    grade:grade(foundStudent.grade)
   }
 
   res.render('students/show', {student})
@@ -83,7 +85,7 @@ exports.edit = (req, res) => {
 
   const student = {
     ...foundStudent,
-    birth: date(foundStudent.birth)
+    birth: date(foundStudent.birth).iso
   }
 
   return res.render('students/edit', {student})
@@ -110,7 +112,8 @@ exports.put = (req, res) => {
     ...foundStudent,
     ...req.body,
     id:Number(req.body.id),
-    birth: Date.parse(req.body.birth)
+    birth: Date.parse(req.body.birth),
+    hours:Number(req.body.hours)
   }
 
   data.students[index] = student;

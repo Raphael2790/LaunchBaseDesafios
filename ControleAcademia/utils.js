@@ -38,6 +38,11 @@ module.exports = {
       if(string.indexOf(item) > -1) return item})
 
       return grade
+  },
+  grade:function(string) {
+    const nivel = string.includes("F")? "Fundamental":"Médio";
+    
+    return `${string[0]}° Ano do Ensino ${nivel}`
   }
 }
 

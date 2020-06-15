@@ -6,8 +6,8 @@
       "name": "RAPHAEL SILVESTRE DOS SANTOS",
       "email": "rssshev@gmail.com",
       "birth": 662256000000,
-      "grade": "3° ano ensino médio",
-      "hours": "4",
+      "grade": "5° ano do ensino fundamental",
+      "hours": 4,
       "created_at": 1591834931535
     },
     {
@@ -16,9 +16,29 @@
       "name": "Marcelo Miquelin",
       "email": "rssshev@gmail.com",
       "birth": 529286400000,
-      "grade": "3° ano ensino médio",
-      "hours": "8",
+      "grade": "5° ano do ensino fundamental",
+      "hours": 10,
       "created_at": 1591835539032
+    },
+    {
+      "id": 3,
+      "avatar_url": "https://source.unsplash.com/collection/8360382/400x400",
+      "name": "Marco M da Silva",
+      "email": "rssshev@gmail.com",
+      "birth": 497750400000,
+      "grade": "9° ano do ensino fundamental",
+      "hours": 9,
+      "created_at": 1592217700706
+    },
+    {
+      "id": 4,
+      "avatar_url": "https://source.unsplash.com/collection/8360382/400x400",
+      "name": "Marcelo Miquelin",
+      "email": "rssshev@gmail.com",
+      "birth": 809308800000,
+      "grade": "5EF",
+      "hours": 8,
+      "created_at": 1592218880867
     }
   ],
   "teachers": [
@@ -26,8 +46,8 @@
       "id": 1,
       "avatar_url": "https://source.unsplash.com/collection/8360382/400x400",
       "name": "RAPHAEL SILVESTRE DOS SANTOS",
-      "birth": 1590710400000,
-      "grade": "Superior",
+      "birth": 599184000000,
+      "grade": "Ensino Médio Completo",
       "classmodel": "EAD",
       "lessioning": [
         "Matematica",
@@ -48,6 +68,20 @@
         "Português"
       ],
       "created_at": 1590488866086
+    },
+    {
+      "id": 3,
+      "avatar_url": "https://source.unsplash.com/collection/8360382/400x400",
+      "name": "Raphael SSS",
+      "birth": 599184000000,
+      "grade": "Mestrado",
+      "classmodel": "Presencial",
+      "lessioning": [
+        "Matematica",
+        "Português",
+        "Inglês"
+      ],
+      "created_at": 1592215945955
     }
   ]
 }

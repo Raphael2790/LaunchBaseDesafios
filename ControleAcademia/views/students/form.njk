@@ -39,9 +39,10 @@
           <select name="grade">
           <optgroup>
           <option 
-          {% if student.grade == "5_fundamental" %}
+          {% if student.grade == "5EF" %}
             selected
-          {% endif %}>
+          {% endif %}
+          value="5EF">
           5° ano do ensino fundamental
           </option>
           <option {% if student.grade == "6_fundamental" %}

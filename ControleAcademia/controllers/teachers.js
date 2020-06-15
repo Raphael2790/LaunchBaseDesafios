@@ -83,7 +83,7 @@ exports.edit = (req, res) => {
 
   const teacher = {
     ...foundTeacher,
-    birth: date(foundTeacher.birth)
+    birth: date(foundTeacher.birth).iso
   }
 
   return res.render('teachers/edit', {teacher})
@@ -110,7 +110,8 @@ exports.put = (req, res) => {
     ...foundTeacher,
     ...req.body,
     id:Number(req.body.id),
-    birth: Date.parse(req.body.birth)
+    birth: Date.parse(req.body.birth),
+    lessioning:req.body.lessioning.split(',')
   }
 
   data.teachers[index] = teacher;

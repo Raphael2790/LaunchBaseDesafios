@@ -12,21 +12,19 @@
   <div class="card table-container">
     <table width="100%">
       <thead>
-        <tr>
+        <tr class="tr-students">
           <th class="head">Nome Completo</th>
-          <th class="head">Acompanhamento</th>
+          <th class="head">E-mail</th>
+          <th class="head">Ano Escolar</th>
           <th class="head">Ação</th>
       </thead>
           <tbody>
             {% for student in students %}
-              <tr>
+              <tr class="tr-students">
                 <td><span style="background-image: url({{student.avatar_url}})"></span>{{student.name}}</td>
-                <td class="spans">
-                  {% for lession in student.lessioning %}
-                    <span>{{lession}}</span>
-                  {% endfor %}
-                </td>
-                <td><a href="/desafios/{{instructor.id}}">ver</a></td>
+                <td>{{student.email}}</td>
+                <td>{{student.grade}}</td>
+                <td><a href="/students/{{student.id}}">ver</a></td>
               </tr>
             {% endfor %}
           </tbody>
