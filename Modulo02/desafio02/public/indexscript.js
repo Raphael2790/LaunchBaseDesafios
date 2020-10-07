@@ -31,7 +31,7 @@ function addIngredients(event) {
   const inputIngredients = document.getElementById("ingred");
   const input = document.createElement("input");
 
-  input.setAttribute("name", "hprepare");
+  input.setAttribute("name", "ingred");
   input.setAttribute("type", "text");
   input.classList.add("add-input");
 
@@ -49,7 +49,7 @@ function addSteps(event) {
   const divPrepare = document.getElementById("prepared");
   const inputStep = document.getElementById("prepare");
   const input = document.createElement("input");
-  input.setAttribute("name", "hprepare");
+  input.setAttribute("name", "prepare");
   input.setAttribute("type", "text");
   input.classList.add("add-input");
 

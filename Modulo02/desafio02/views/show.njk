@@ -1,0 +1,24 @@
+{%extends "layout.njk"%}
+
+{%block content%}
+  <div class="container-show">
+    <div class="header-show">
+      <h3>Receita:
+        {{recipe.title}}</h3>
+      <a href="http://">Editar receita</a>
+    </div>
+    <div class="image-show">
+      <img src="{{recipe.image}}" alt="{{recipe.title}}">
+    </div>
+    <div class="title-show">
+      <h3>{{recipe.title}}</h3>
+      <h6>{{recipe.author}}</h6>
+    </div>
+    <ul>Ingredientes</ul>
+    <ul>Mode de Preparo</ul>
+    <div class="info-show">
+      <h3>Informações adicionais</h3>
+      <p>{{recipe.information}}</p>
+    </div>
+  </div>
+  {%endblock%}

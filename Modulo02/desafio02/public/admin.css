@@ -154,3 +154,81 @@ form > div + button {
   margin-top: 8px;
   padding: 5px;
 }
+
+/* === Index ADM === */
+.container-index {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 940px;
+  max-width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin: 32px auto;
+}
+
+.title-admin {
+  margin: 32px auto;
+  text-align: center;
+  font-weight: bold;
+  font-size: 28px;
+}
+.image-index img {
+  width: 232px;
+  height: 80px;
+  border-radius: 8.5px;
+}
+
+.card-index {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 12px;
+  margin-right: 8px;
+}
+.index-details {
+  display: flex;
+  flex-direction: column;
+  margin-left: 12px;
+}
+
+.index-details span {
+  margin-bottom: 5px;
+}
+
+.index-details span:first-child {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 20px;
+  font-family: "Roboto";
+}
+
+.index-details span:nth-child(2) {
+  font-size: 14px;
+  line-height: 20px;
+  color: #bbbb;
+  font-family: "Roboto";
+}
+
+.index-details a {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+/* === FOOTER === */
+footer {
+  width: 100%;
+  background-color: #eeeeee;
+  margin: 5em 0 0 0;
+  vertical-align: middle;
+  position: absolute;
+  left: 0;
+  height: 40px;
+}
+
+footer p {
+  text-align: center;
+  font-size: 14px;
+  line-height: 16px;
+  color: #999999;
+  padding: 0.3em 0 0.3em 0;
+}
