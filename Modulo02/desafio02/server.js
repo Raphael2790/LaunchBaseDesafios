@@ -1,50 +1,31 @@
-const express = require('express');
-const nunjucks = require('nunjucks');
+const express = require("express");
+const nunjucks = require("nunjucks");
+const routes = require("./routes");
+const methodOverride = require("method-override");
 
 const server = express();
-const PORT = 5050
-const data = require('./data');
+const PORT = 5050;
+const data = require("./data");
 
-server.use(express.static('public'));
+server.use(express.urlencoded({ extended: true }));
+server.use(routes);
+server.use(express.static("public"));
+server.use(methodOverride("_method"));
+server.set("view engine", "njk");
 
-server.set('view engine', 'njk');
-
-nunjucks.configure('views', {
+nunjucks.configure("views", {
   express: server,
-  autoescape: false
-})
-
-server.get('/', (req, res) => {
-  return res.render('index', {css:"/style.css"});
-})
-
-server.get('/sobre', (req, res) => {
-  return res.render('sobre', {css:"/sobrestyle.css"})
-})
-
-server.get('/receitas', (req, res) => {
-  return res.render('receitas',{css:"/receitas.css"})
-})
-
-server.get('/receita/:index', (req, res) => {
-  const recipes = data;
-  const recipeIndex = req.params.index
-  const filterRecipe = recipes.find(recipe => recipe.title === recipeIndex)
-
-  if(!filterRecipe) {
-    return res.status(404).render('not-found', {css:"/style.css"});
-  }
-
-  return res.render('receita', {filterRecipe, css:"/receita.css"})
-})
+  autoescape: false,
+  noCache: true
+});
 
 server.use((req, res) => {
-  return res.status(404).render('not-found', {css:"/style.css"});
-})
+  return res.status(404).render("not-found", { css: "/style.css" });
+});
 
 server.listen(PORT, (err) => {
-  if(err) {
-    return `Erro ${err}`
+  if (err) {
+    return `Erro ${err}`;
   }
-  console.log(`Servidor rodando na porta ${PORT}`)
-})
+  console.log(`Servidor rodando na porta ${PORT}`);
+});

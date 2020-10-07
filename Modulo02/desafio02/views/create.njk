@@ -1,0 +1,14 @@
+{% extends "layout.njk"%}
+
+{%block content%}
+  <div class="container">
+    <div class="send-header">
+      <h3>Criando receita</h3>
+      <button type="submit" form="form-create">Salvar receita</button>
+    </div>
+
+    <form method="POST" action="/admin/recipes" class="form-input" id="form-create">
+      {%include "form.njk"%}
+    </form>
+  </div>
+  {%endblock%}

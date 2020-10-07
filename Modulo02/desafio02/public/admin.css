@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+:root {
+  --primary-color: #6558c3;
+  --black-color: #111111;
+}
+
+* {
+  font-family: "Roboto";
+}
+
+header {
+  background: var(--black-color);
+}
+
+header > a {
+  color: #ffff;
+  font-size: 12px;
+}
+
+header img {
+  background: #ccc;
+  padding: 5px;
+  border-radius: 4px;
+  margin: 5px 0 5px 5px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 940px;
+  max-width: 100%;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 32px auto;
+}
+
+/* == Form Header == */
+.send-header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.send-header > h3 {
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--black-color);
+  flex-basis: 80%;
+}
+
+.send-header > button {
+  flex-basis: 20%;
+  height: 36px;
+  color: #ffff;
+  background: var(--primary-color);
+  font-weight: bold;
+  border-radius: 4px;
+  border: none;
+}
+
+.send-header > button:hover {
+  cursor: pointer;
+}
+
+/* === Form Area=== */
+.form-input {
+  width: 100%;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 32px;
+}
+
+.item input {
+  height: 48px;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.last > input {
+  height: 240px;
+}
+
+.item label {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.item > button {
+  font-size: 16px;
+  color: var(--primary-color);
+  border: none;
+  background: #ffff;
+  align-self: start;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 12px;
+}
