@@ -81,7 +81,37 @@ exports.post = (req, res) => {
   });
 };
 
-exports.put = (req, res) => {};
+exports.put = (req, res) => {
+  const { id } = req.body;
+  let index = 0;
+
+  const foundRecipe = data.recipes.find((recipe, foundindex) => {
+    if (recipe.id == id) {
+      index = foundindex;
+      return true;
+    }
+  });
+
+  if (!foundRecipe) {
+    return res.send("Receita não encontrada");
+  }
+
+  const recipe = {
+    ...foundRecipe,
+    ...req.body,
+    id: Number(req.body.id)
+  };
+
+  data.recipes[index] = recipe;
+
+  fs.writeFile("data.json", JSON.stringify(data, null, 2), (error) => {
+    if (error) {
+      return res.send("Não foi possivel gravar o arquivo");
+    }
+
+    return res.redirect(`/admin/recipes/${id}`);
+  });
+};
 
 exports.delete = (req, res) => {
   const { id } = req.body;

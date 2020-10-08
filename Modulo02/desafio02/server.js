@@ -5,12 +5,11 @@ const methodOverride = require("method-override");
 
 const server = express();
 const PORT = 5050;
-const data = require("./data");
 
 server.use(express.urlencoded({ extended: true }));
-server.use(routes);
 server.use(express.static("public"));
 server.use(methodOverride("_method"));
+server.use(routes);
 server.set("view engine", "njk");
 
 nunjucks.configure("views", {
