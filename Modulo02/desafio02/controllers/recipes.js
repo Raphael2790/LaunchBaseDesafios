@@ -34,7 +34,13 @@ exports.create = (req, res) => {
   return res.render("create", { css: "/admin.css" });
 };
 
-exports.edit = (req, res) => {};
+exports.edit = (req, res) => {
+  const { id } = req.params;
+
+  const recipe = data.recipes.find((recipe) => recipe.id == id);
+
+  return res.render("edit", { css: "/admin.css", recipe });
+};
 
 exports.post = (req, res) => {
   const keys = Object.keys(req.body);
@@ -51,7 +57,7 @@ exports.post = (req, res) => {
     ingredients,
     preparation,
     information
-  } = database;
+  } = req.body;
 
   const _created_at = Date.now();
   const id = Number(data.recipes.length + 1);
@@ -77,7 +83,24 @@ exports.post = (req, res) => {
 
 exports.put = (req, res) => {};
 
-exports.delete = (req, res) => {};
+exports.delete = (req, res) => {
+  const { id } = req.body;
+
+  const filteredRecipes = data.recipes.filter((recipe) => {
+    return recipe.id != id;
+  });
+
+  console.log(filteredRecipes);
+
+  data.recipes = filteredRecipes;
+
+  fs.writeFile("data.json", JSON.stringify(data, null, 2), (error) => {
+    if (error) {
+      return res.send("Aconteceu um erro ao gravar o arquivo");
+    }
+    return res.redirect("/admin/recipes");
+  });
+};
 
 exports.show = (req, res) => {
   const { id } = req.params;

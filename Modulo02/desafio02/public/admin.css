@@ -122,30 +122,6 @@ form > div + button {
   margin-top: 12px;
 }
 
-.list-itens {
-  margin-left: 5px;
-  list-style: disc;
-  list-style-position: inside;
-}
-
-.list-itens li {
-  margin-top: 5px;
-  color: #111111;
-  font-family: "Roboto";
-}
-
-.steps-list {
-  margin-left: 5px;
-  list-style: decimal;
-  list-style-position: inside;
-}
-
-.steps-list li {
-  margin-top: 5px;
-  color: #111111;
-  font-family: "Roboto";
-}
-
 #ingredient .add-input,
 #prepared .add-input {
   color: #6558c3;
@@ -231,4 +207,112 @@ footer p {
   line-height: 16px;
   color: #999999;
   padding: 0.3em 0 0.3em 0;
+}
+
+/* === SHOW PAGE === */
+.container-show {
+  display: flex;
+  flex-direction: column;
+  margin: 32px auto;
+  width: 940px;
+  max-width: 100%;
+  padding: 8px;
+}
+
+.header-show {
+  display: grid;
+  grid-template-columns: 5fr 1.5fr;
+  width: 100%;
+  margin-bottom: 12px;
+  height: 36px;
+}
+
+.title-show > h3 {
+  align-content: flex-start;
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: bold;
+  justify-self: flex-start;
+}
+
+.link-show {
+  display: flex;
+  background: var(--primary-color);
+  justify-content: center;
+  border-radius: 4px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.link-show > a {
+  color: #ffff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+  align-self: center;
+}
+
+.image-show {
+  max-height: 100%;
+  border-radius: 15px;
+  width: 940px;
+  max-width: 100%;
+}
+.image-show > img {
+  width: 100%;
+  height: 282px;
+  max-height: 100%;
+}
+
+.bigtitle-show {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.bigtitle-show > h3 {
+  font-size: 36px;
+  line-height: 42px;
+  font-family: "Roboto";
+  font-weight: bold;
+  margin-top: 32px;
+  margin-bottom: 12px;
+}
+
+.bigtitle-show > h6 {
+  font-family: "Roboto";
+  font-size: 20px;
+  line-height: 24px;
+  color: #777777;
+}
+
+.ingredients-show,
+.preparation-show {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-bottom: 24px;
+}
+
+.ingredients-show > h3,
+.preparation-show > h3,
+.info-show > h3 {
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: var(--black-color);
+}
+
+.ingredients-show ul li,
+.preparation-show ul li,
+.info-show > p {
+  font-size: 16px;
+  color: #444444;
+  line-height: 28px;
+  font-family: "Roboto";
 }

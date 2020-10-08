@@ -1,31 +1,47 @@
 <div class="item">
   <label for="title">Titulo da receita</label>
-  <input type="text" name="title" id="title" placeholder="Digite o titulo de sua deliciosa receita...">
+  <input type="text" name="title" id="title" placeholder="Digite o titulo de sua deliciosa receita..." value="{{recipe.title}}">
 </div>
 
 <div class="item">
   <label for="author">Autor</label>
-  <input type="text" name="author" id="author" placeholder="Digite o seu nome aqui...">
+  <input type="text" name="author" id="author" placeholder="Digite o seu nome aqui..." value="{{recipe.author}}">
 </div>
 
 <div class="item">
   <label for="imagem">Imagem da receita</label>
-  <input type="url" name="image" id="imagem">
+  <input type="url" name="image" id="imagem" value="{{recipe.image}}">
 </div>
 
 <div class="item" id="ingredient">
   <label for="ingred">Ingredientes</label>
-  <input type="text" name="ingredients" id="ingred" placeholder="Digite um ingrediente por vez...">
-</div>
-<button class="add-ingredient">Adicionar novo ingrediente</button>
+  {%if recipe.ingredients.length > 0%}
+    {%for item in recipe.ingredients%}
+      <input type="text" name="ingredients" id="ingred" placeholder="Digite um ingrediente por vez..." value="{{item}}">
+      {%endfor%}
+      {%else%}
+      <input type="text" name="ingredients" id="ingred" placeholder="Digite um ingrediente por vez...">
+      {%endif%}
+    </div>
+    <button class="add-ingredient">Adicionar novo ingrediente</button>
 
-<div class="item" id="prepared">
-  <label for="prepare">Modo de preparo</label>
-  <input type="text" name="preparation" id="prepare" placeholder="Digite o passo a passo...">
-</div>
-<button class="add-step">Adicionar novo passo</button>
+    <div class="item" id="prepared">
+      <label for="prepare">Modo de preparo</label>
+      {%if recipe.preparation.length > 0 %}
 
-<div class="item last">
-  <label for="infos">Informações adicionais</label>
-  <input type="text" name="information" id="infos">
-</div>
+        {%for item in recipe.preparation%}
+          <input type="text" name="preparation" id="prepare" placeholder="Digite o passo a passo..." value="{{item}}">
+          {%endfor%}
+
+          {%else%}
+
+          <input type="text" name="preparation" id="prepare" placeholder="Digite o passo a passo...">
+
+          {%endif%}
+        </div>
+        <button class="add-step">Adicionar novo passo</button>
+
+        <div class="item last">
+          <label for="infos">Informações adicionais</label>
+          <input type="text" name="information" id="infos" value="{{recipe.information}}">
+        </div>

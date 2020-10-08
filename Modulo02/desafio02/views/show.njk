@@ -3,22 +3,43 @@
 {%block content%}
   <div class="container-show">
     <div class="header-show">
-      <h3>Receita:
-        {{recipe.title}}</h3>
-      <a href="http://">Editar receita</a>
+      <div class="title-show">
+        <h3>Receita:
+          {{recipe.title}}</h3>
+      </div>
+      <div class="link-show">
+        <a href="/admin/recipes/{{recipe.id}}/edit">Editar receita</a>
+      </div>
     </div>
     <div class="image-show">
       <img src="{{recipe.image}}" alt="{{recipe.title}}">
     </div>
-    <div class="title-show">
+    <div class="bigtitle-show">
       <h3>{{recipe.title}}</h3>
-      <h6>{{recipe.author}}</h6>
+      <h6>por
+        {{recipe.author}}</h6>
     </div>
-    <ul>Ingredientes</ul>
-    <ul>Mode de Preparo</ul>
-    <div class="info-show">
-      <h3>Informações adicionais</h3>
-      <p>{{recipe.information}}</p>
-    </div>
-  </div>
-  {%endblock%}
+    <div class="ingredients-show">
+      <h3>Ingredientes</h3>
+      <ul>
+        {%for ingredient in recipe.ingredients%}
+          <li>-
+            {{ingredient}}</li>
+          {%endfor%}
+        </ul>
+      </div>
+      <div class="preparation-show">
+        <h3>Modo de preparo</h3>
+        <ul>
+          {%for task in recipe.preparation%}
+            <li>-
+              {{task}}</li>
+            {%endfor%}
+          </ul>
+        </div>
+        <div class="info-show">
+          <h3>Informações adicionais</h3>
+          <p>{{recipe.information}}</p>
+        </div>
+      </div>
+      {%endblock%}
