@@ -1,0 +1,82 @@
+<div class="itens">
+        <div>Avatar URL</div>
+        <input 
+        type="url" 
+        name="avatar_url" 
+        placeholder="Ex:https://"
+        value="{{teacher.avatar_url}}">
+      </div>
+
+      <div class="itens">
+        <div>Nome Completo</div>
+        <input 
+        type="text" 
+        name="name" 
+        placeholder="Seu nome completo..."
+        value="{{teacher.name}}">
+      </div>
+
+      <div class="itens">
+        <div>Data de Nascimento</div>
+        <input 
+        type="date" 
+        name="birth"
+        value="{{teacher.birth}}">
+      </div>
+
+      <div class="itens">
+      <div>Grau de escolaridade</div>
+        <div>
+          <select name="grade">
+          <optgroup>
+          <option 
+          {% if teacher.grade == "Médio" %}
+            selected
+          {% endif %}>
+          Ensino Médio Completo
+          </option>
+          <option {% if teacher.grade == "Superior" %}
+            selected
+          {% endif %}>Ensino Superior Completo</option>
+          <option {% if teacher.grade == "Mestrado" %}
+            selected
+          {% endif %}>Mestrado</option>
+          <option {% if teacher.grade == "Doutorado" %}
+            selected
+          {% endif %}>Doutorado</option>
+          </optgroup>
+          </select>
+        </div>
+      </div>
+
+      <div class="itens">
+        <div>Tipo de aula</div>
+        <span>
+          <input 
+          type="radio" 
+          name="classmodel" 
+          value="Presencial" 
+          {% if teacher.classmodel == "Presencial" %}
+          checked
+          {% endif %}>
+          Presencial
+          </span>
+        <span><input 
+        type="radio" 
+        name="classmodel" 
+        value="EAD"
+        {% if teacher.classmodel == "EAD" %}
+          checked
+        {% endif %}>À Distância</span>
+      </div>
+
+      <div class="itens">
+        <div>Area de atuação</div>
+        <input 
+        type="text" 
+        name="lessioning" 
+        placeholder="Digite aqui as matérias que irá lecionar..."
+        value="{{teacher.lessioning}}">
+      </div>
+
+      

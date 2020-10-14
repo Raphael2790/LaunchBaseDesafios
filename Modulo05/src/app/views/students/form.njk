@@ -1,0 +1,98 @@
+<div class="itens">
+        <div>Avatar URL</div>
+        <input 
+        type="url" 
+        name="avatar_url" 
+        placeholder="Ex:https://"
+        value="{{student.avatar_url}}">
+      </div>
+
+      <div class="itens">
+        <div>Nome Completo</div>
+        <input 
+        type="text" 
+        name="name" 
+        placeholder="Seu nome completo..."
+        value="{{student.name}}">
+      </div>
+
+      <div class="itens">
+        <div>Email</div>
+        <input 
+        type="email" 
+        name="email" 
+        placeholder="Seu melhor e-mail..."
+        value="{{student.email}}">
+      </div>
+
+      <div class="itens">
+        <div>Data de Nascimento</div>
+        <input 
+        type="date" 
+        name="birth"
+        value="{{student.birth}}">
+      </div>
+
+      <div class="itens">
+      <div>Ano Escolar</div>
+        <div>
+          <select name="grade">
+          <optgroup>
+          <option 
+          {% if student.grade == "5EF" %}
+            selected
+          {% endif %}
+          value="5EF">
+          5° ano do ensino fundamental
+          </option>
+          <option {% if student.grade == "6_fundamental" %}
+            selected
+          {% endif %}>6° ano do ensino fundamental</option>
+          <option {% if student.grade == "7_fundamental" %}
+            selected
+          {% endif %}>7° ano do ensino fundamental</option>
+          <option {% if student.grade == "8_fundamental" %}
+            selected
+          {% endif %}>8° ano do ensino fundamental</option>
+          <option 
+          {% if student.grade == "9_fundamental" %}
+            selected
+          {% endif %}>
+          9° ano do ensino fundamental
+          </option>
+          <option 
+          {% if student.grade == "1_medio" %}
+            selected
+          {% endif %}>
+          1° ano do ensino médio
+          </option>
+          <option 
+          {% if student.grade == "2_medio" %}
+            selected
+          {% endif %}>
+          2° ano ensino médio
+          </option>
+          <option 
+          {% if student.grade == "3_medio" %}
+            selected
+          {% endif %}>
+          3° ano ensino médio
+          </option>
+          </optgroup>
+          </select>
+        </div>
+      </div>
+
+      <div class="itens">
+        <div>Carga horária semanal</div>
+        <div>
+          <input 
+          type="number" 
+          name="hours"
+          value="{{student.hours}}" min="1" max="20">
+        </div>
+      </div>
+
+      
+
+      

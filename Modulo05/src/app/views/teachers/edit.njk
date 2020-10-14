@@ -1,0 +1,54 @@
+{% extends "layout.njk" %}
+
+{% block header %}
+
+<div class="links-desafios">
+  <a href="/teachers">Teachers</a>
+  <a href="/students">Students</a>
+</div>
+{% endblock header %}
+
+{%block content%}
+
+  <div class="card-teacher">
+
+    <section class="avatar-teacher" style="background: url(https://source.unsplash.com/collection/8360382/400x400) no-repeat center center / cover">
+
+    </section>
+
+
+      
+    <section class="details-teacher">
+      <form action="/teachers?_method=PUT" method="POST">
+
+        <h3>Editar Professor</h3>
+        
+        {%include 'teachers/form.njk'%}
+
+        <div class="buttons">
+
+        <button type="submit">Salvar</button>
+
+        <button type="submit" id="delete" form="form-delete">Deletar</button>
+        
+        </div>
+
+        <input type="hidden" name="id" value="{{teacher.id}}">
+        
+      </form>
+
+      <form class="form-delete" id="form-delete" action="/teachers?_method=DELETE" method="post">
+
+        <input type="hidden" name="id" value="{{teacher.id}}">
+
+        
+      
+      </form>
+    </section>
+
+  </div>
+
+  {%include '../script.njk'%}
+
+  
+{%endblock content%}
