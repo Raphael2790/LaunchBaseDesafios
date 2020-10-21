@@ -1,11 +1,11 @@
-const { age, graduation, date } = require("../utils");
+const { age, graduation, date } = require("../../lib/utils");
 
 module.exports = {
   index(req, res) {
-    return res.render("students/index");
+    return res.render("teachers/index");
   },
   create(req, res) {
-    return res.sender("students/create");
+    return res.sender("teachers/create");
   },
   post(req, res) {
     const keys = Object.keys(req.body);
@@ -18,6 +18,9 @@ module.exports = {
     return;
   },
   show(req, res) {
+    return;
+  },
+  edit(req, res) {
     return;
   },
   put(req, res) {
