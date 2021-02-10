@@ -4,9 +4,8 @@ const dbgym = require("../../config/dbgym");
 module.exports = {
     all(callback) {
     const query = `SELECT * FROM instructors`;
-    dbgym.query(query, (err, results) => {
-      if (err) return res.send("Database error");
-      console.log(results);
+    dbgym.query(query, (error, results) => {
+      if (error) throw `Database Error ${error}`;
         callback(results.rows);
     });
     },
@@ -33,18 +32,49 @@ module.exports = {
       ];
         
     dbgym.query(querie, values, (error, results) => {
-        if (error) return res.send("Database Error");
+        if (error) throw `Database Error ${error}`;
         callback(results.rows[0]);
       });
     },
-    getById(value, callback) {
-        const query = `
-        SELECT * FROM instructors
-        WHERE id = $1
-        `
+    getById(id, callback) {
+    dbgym.query(`SELECT * FROM instructors WHERE id = $1`, [id],
+      function (error, results) {
+        if (error) throw `Database Error ${error}`;
+        callback(results.rows[0])
+      });
+    },
+    update(data, callback) {
+      
+      const query = `
+        UPDATE instructors SET 
+        avatar_url = ($1),
+        name = ($2),
+        birth = ($3),
+        gender = ($4),
+        services = ($5)
+        WHERE id = $6
+      `
 
-        dbgym.query(query, [value], (error,results) => {
-            callback(error, results.rows[0]);
-        })
-    }
+      const values = [
+        data.avatar_url,
+        data.name,
+        date(data.birth).iso,
+        data.gender,
+        data.services,
+        data.id
+      ]
+
+      dbgym.query(query, values, (error, results) => {
+        if (error) throw `Database Error ${error}`
+        callback();
+      })
+
+    },
+    delete(id, callback) {
+      dbgym.query(`DELETE FROM instructors WHERE id = $1`, [id],
+        (error, results) => {
+          if (error) throw `Database Error ${error}`
+          callback();
+        }
+    )}
 }

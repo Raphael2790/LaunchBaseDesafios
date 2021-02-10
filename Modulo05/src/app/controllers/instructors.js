@@ -8,14 +8,12 @@ module.exports = {
     })
   },
   show(req, res) {
-    const value = req.params.id
-    Instructor.getById(value, (error, instructor) => {
-      if (error) return res.send("Database error");
+    Instructor.getById(req.params.id, function (instructor) {
       if (!instructor) return res.send("Instructor not found!");
-      instructor.birth = age(instructor.birth);
-      instructor.service = instructor.services.split(",");
+      instructor.age = age(instructor.birth);
+      instructor.services = instructor.services.split(",");
       instructor.created_at = date(instructor.created_at).format;
-      return res.render("instructors/show", instructor)
+      return res.render("instructors/show", { instructor });
     })
   },
   create(req, res) {
@@ -34,7 +32,12 @@ module.exports = {
     });
   },
   edit(req, res) {
-    return;
+    Instructor.getById(req.params.id, function (instructor) {
+      if (!instructor) return res.send("Instructor not found!");
+      instructor.birth = date(instructor.birth).iso;
+      
+      return res.render("instructors/edit", { instructor });
+    })
   },
   put(req, res) {
     const keys = Object.keys(req.body);
@@ -44,9 +47,15 @@ module.exports = {
         return res.send("Por favor preencha todos os campos");
     }
 
+    Instructor.update(req.body, () => {
+      return res.redirect(`instructors/${req.body.id}`)
+    })
+
     return;
   },
   delete(req, res) {
-    return;
+    Instructor.delete(req.body.id, () => {
+      return res.redirect("/instructors");
+      })
   }
 };
