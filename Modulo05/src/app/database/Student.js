@@ -1,34 +1,35 @@
-const { date, grade } = require("../../lib/utils");
+const { date, age, grade } = require("../../lib/utils");
 const dbSchool = require("../../config/dbschool");
 
 module.exports = {
-    all(callback) { 
-        dbSchool.query(`SELECT * FROM teachers`,
+    all(callback) {
+        dbSchool.query(`SELECT * FROM students`,
             (error, results) => {
-                if (error) throw `Database Error`;
+                if (error) throw `Database error ${error}`;
                 callback(results.rows);
             })
-    },
+     },
     create(data, callback) {
         const query = `
-            INSERT INTO teachers(
+            INSERT INTO students
+            (
                 avatar_url,
                 name,
+                email,
                 birth,
                 grade,
-                classmodel,
-                lessioning,
+                hours,
                 created_at
-            ) VALUES($1,$2,$3,$4,$5,$6, $7)
+            ) VALUES($1,$2,$3,$4,$5,$6,$7)
             RETURNING id
         `
         const values = [
             data.avatar_url,
             data.name,
+            data.email,
             date(data.birth).iso,
-            graduation(data.grade),
-            data.classmodel,
-            data.lessioning,
+            grade(data.grade),
+            data.hours,
             date(Date.now()).iso
         ]
 
@@ -37,33 +38,26 @@ module.exports = {
                 if (error) throw `Database error ${error}`;
                 callback(results.rows[0]);
             })
-     },
-    getById(id, callback) {
-        dbSchool.query(`SELECT * FROM teachers WHERE id = $1`, [id],
-            (error, results) => {
-                if (error) throw `Database error`;
-                callback(results.rows[0]);
-        })
-     },
+    },
     update(data, callback) {
         const query = `
-            UPDATE teachers SET
+            UPDATE students SET
             avatar_url = ($1),
             name = ($2),
-            birth = ($3),
-            grade = ($4),
-            classmodel = ($5),
-            lessioning = ($6)
-            WHERE id = ($7)
+            email = ($3),
+            birth = ($4),
+            grade = ($5),
+            hours = ($6)
+            WHERE id = $7
         `
 
         const values = [
             data.avatar_url,
             data.name,
+            data.email,
             date(data.birth).iso,
-            graduation(data.grade),
-            data.classmodel,
-            data.lessioning,
+            grade(data.grade),
+            data.hours,
             data.id
         ]
 
@@ -71,13 +65,20 @@ module.exports = {
             (error, results) => {
                 if (error) throw `Database error ${error}`;
                 callback();
-            })
+        })
      },
-    delete(id, callback) {
-        dbSchool.query(`DELETE FROM teachers WHERE id = $1`, [id],
+    getById(id, callback) {
+        dbSchool.query(`SELECT * FROM students WHERE id = $1`, [id],
+            (error, results) => {
+                if (error) throw `Database error ${error}`;
+                callback(results.rows[0]);
+        })
+     },
+    delete(id,callback) {
+        dbSchool.query(`DELETE FROM students WHERE id = $1`, [id],
             (error, results) => {
                 if (error) throw `Database error ${error}`;
                 callback();
-            } )
+        })
     }
 }

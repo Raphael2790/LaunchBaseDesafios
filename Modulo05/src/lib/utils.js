@@ -45,5 +45,21 @@ module.exports = {
     const nivel = string.includes("F") ? "Fundamental" : "Médio";
 
     return `${string[0]}° Ano do Ensino ${nivel}`;
+  },
+  editGradeShow(string) {
+    const gradeNumber = parseInt(string.charAt(0));
+
+    const grades = {
+      5: "5_fundamental",
+      6: "6_fundamental",
+      7: "7_fundamental",
+      8: "8_fundamental",
+      9: "9_fundamental",
+      1: "1_medio",
+      2: "2_medio",
+      3: "3_medio"
+    }
+
+    return grades[gradeNumber];
   }
 };
