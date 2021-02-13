@@ -5,7 +5,7 @@ module.exports = {
     return res.render("students/index");
   },
   create(req, res) {
-    return res.sender("students/create");
+    return res.render("students/create");
   },
   post(req, res) {
     const keys = Object.keys(req.body);

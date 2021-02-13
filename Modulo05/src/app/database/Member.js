@@ -3,7 +3,7 @@ const dbgym = require("../../config/dbgym");
 
 module.exports = {
     all(callback) {
-    const query = `SELECT * FROM instructors ORDER BY name ASC`;
+    const query = `SELECT * FROM members ORDER BY name ASC`;
     dbgym.query(query, (error, results) => {
       if (error) throw `Database Error ${error}`;
         callback(results.rows);
@@ -11,24 +11,28 @@ module.exports = {
     },
     create(data, callback) {
       const querie = `
-      INSERT INTO instructors(
-        avatar_url,
+      INSERT INTO members(
         name,
-        birth,
+        avatar_url,
+        email,
         gender,
-        services,
-        created_at
-      ) VALUES ($1, $2, $3, $4, $5, $6)
+        birth,
+        blood,
+        weight,
+        height
+      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
       RETURNING id
     `;
     
     const values = [
-        data.avatar_url,
         data.name,
-        date(data.birth).iso,
+        data.avatar_url,
+        data.email,
         data.gender,
-        data.services,
-        date(Date.now()).iso
+        date(data.birth).iso,
+        data.blood,
+        data.weight,
+        data.height
       ];
         
     dbgym.query(querie, values, (error, results) => {
@@ -37,7 +41,7 @@ module.exports = {
       });
     },
     getById(id, callback) {
-    dbgym.query(`SELECT * FROM instructors WHERE id = $1`, [id],
+    dbgym.query(`SELECT * FROM members WHERE id = $1`, [id],
       function (error, results) {
         if (error) throw `Database Error ${error}`;
         callback(results.rows[0])
@@ -46,21 +50,27 @@ module.exports = {
     update(data, callback) {
       
       const query = `
-        UPDATE instructors SET 
-        avatar_url = ($1),
-        name = ($2),
-        birth = ($3),
+        UPDATE members SET 
+        name = ($1),
+        avatar_url = ($2),
+        email = ($3),
         gender = ($4),
-        services = ($5)
-        WHERE id = $6
+        birth = ($5),
+        blood = ($6),
+        weight = ($7),
+        height = ($8)
+        WHERE id = $9
       `
 
       const values = [
-        data.avatar_url,
         data.name,
-        date(data.birth).iso,
+        data.avatar_url,
+        data.email,
         data.gender,
-        data.services,
+        date(data.birth).iso,
+        data.blood,
+        data.weight,
+        data.height,
         data.id
       ]
 
@@ -71,7 +81,7 @@ module.exports = {
 
     },
     delete(id, callback) {
-      dbgym.query(`DELETE FROM instructors WHERE id = $1`, [id],
+      dbgym.query(`DELETE FROM members WHERE id = $1`, [id],
         (error, results) => {
           if (error) throw `Database Error ${error}`
           callback();

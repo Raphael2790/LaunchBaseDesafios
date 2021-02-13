@@ -1,11 +1,17 @@
 const { age, graduation, date } = require("../../lib/utils");
+const Teacher = require("../database/Teacher");
 
 module.exports = {
   index(req, res) {
-    return res.render("teachers/index");
+    Teacher.all((teachers) => {
+      teachers.map(teacher => {
+        teacher.lessioning = teacher.lessioning.split(",");
+      });
+      return res.render("teachers/index", { teachers });
+    })
   },
   create(req, res) {
-    return res.sender("teachers/create");
+    return res.render("teachers/create");
   },
   post(req, res) {
     const keys = Object.keys(req.body);
@@ -15,7 +21,10 @@ module.exports = {
         return res.send("Preencha todos os campos por favor");
     }
 
-    return;
+    Teacher.create(req.body, (teacher) => {
+      return res.redirect(`teachers/${teacher.id}`)
+    })
+
   },
   show(req, res) {
     return;
@@ -34,6 +43,8 @@ module.exports = {
     return;
   },
   delete(req, res) {
-    return;
+    Teacher.delete(req.body.id, () => {
+      return res.redirect("teachers/index");
+    })
   }
 };
