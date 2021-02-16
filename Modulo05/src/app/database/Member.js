@@ -19,8 +19,9 @@ module.exports = {
         birth,
         blood,
         weight,
-        height
-      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+        height,
+        instructor_id
+      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
       RETURNING id
     `;
     
@@ -32,7 +33,8 @@ module.exports = {
         date(data.birth).iso,
         data.blood,
         data.weight,
-        data.height
+        data.height,
+        data.instructor
       ];
         
     dbgym.query(querie, values, (error, results) => {
@@ -41,7 +43,10 @@ module.exports = {
       });
     },
     getById(id, callback) {
-    dbgym.query(`SELECT * FROM members WHERE id = $1`, [id],
+      dbgym.query(`SELECT members.*, instructors.name AS instructor_name
+      FROM members
+      LEFT JOIN instructors ON (members.instructor_id = instructors.id)
+      WHERE members.id = $1`, [id],
       function (error, results) {
         if (error) throw `Database Error ${error}`;
         callback(results.rows[0])
@@ -58,8 +63,9 @@ module.exports = {
         birth = ($5),
         blood = ($6),
         weight = ($7),
-        height = ($8)
-        WHERE id = $9
+        height = ($8),
+        instructor_id = ($9)
+        WHERE id = $10
       `
 
       const values = [
@@ -71,6 +77,7 @@ module.exports = {
         data.blood,
         data.weight,
         data.height,
+        data.instructor,
         data.id
       ]
 
@@ -86,5 +93,14 @@ module.exports = {
           if (error) throw `Database Error ${error}`
           callback();
         }
-    )}
+    )
+    },
+    instructorsSelectOptions(callback) {
+      dbgym.query(`SELECT id, name FROM instructors`,
+        (error, results) => {
+          if (error) throw `Database error ${error}`;
+          callback(results.rows);
+      })
+    }
+    
 }

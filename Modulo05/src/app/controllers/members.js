@@ -1,4 +1,5 @@
 const { date } = require("../../lib/utils");
+const { instructorsOption } = require("../database/Member");
 
 const Member = require("../database/Member");
 
@@ -17,7 +18,9 @@ module.exports = {
     })
   },
   create(req, res) {
-    return res.render("members/create");
+    Member.instructorsSelectOptions((options) => {
+      return res.render("members/create", {instructorsOptions : options});
+    })
   },
   post(req, res) {
     const keys = Object.keys(req.body);
@@ -36,7 +39,10 @@ module.exports = {
       if (!member) return res.send("Member not found!");
       member.birth = date(member.birth).iso;
       
-      return res.render("members/edit", { member });
+      Member.instructorsSelectOptions((options) => {
+        return res.render("members/edit", { member, instructorsOptions: options });
+      })
+
     })
   },
   put(req, res) {
