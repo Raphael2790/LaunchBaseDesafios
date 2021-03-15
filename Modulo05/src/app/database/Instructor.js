@@ -6,7 +6,8 @@ module.exports = {
     const query = `SELECT instructors.*, count(members.name) as total_students
     FROM instructors
     LEFT JOIN members ON (instructors.id = members.instructor_id)
-    GROUP BY instructors.id`;
+    GROUP BY instructors.id
+    ORDER BY total_students DESC`;
     dbgym.query(query, (error, results) => {
       if (error) throw `Database Error ${error}`;
         callback(results.rows);
@@ -44,6 +45,20 @@ module.exports = {
       function (error, results) {
         if (error) throw `Database Error ${error}`;
         callback(results.rows[0])
+      });
+    },
+    getByName(filter, callback) {
+      const query = `SELECT instructors.*, count(members.name) as total_students
+                    FROM instructors
+                    LEFT JOIN members ON (instructors.id = members.instructor_id)
+                    WHERE instructors.name ILIKE '%${filter}%'
+                    OR instructors.services ILIKE '%${filter}%'
+                    GROUP BY instructors.id
+                    ORDER BY total_students DESC`;
+      
+      dbgym.query(query, (error, results) => {
+        if (error) throw `Database Error ${error}`;
+          callback(results.rows);
       });
     },
     update(data, callback) {

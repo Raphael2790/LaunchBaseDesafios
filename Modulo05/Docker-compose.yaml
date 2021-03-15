@@ -10,6 +10,6 @@ services:
       - /mnt/c/Users/Raphael Silvestre/temp/database:/var/lib/postgresql/data
     #porta compartilhada
     ports: 
-      - '5432 : 5432'
+      - 5432 : 5432
     environment: 
-      - 'POSTGRES_PASSWORD' : '1234'
+      - 'POSTGRES_PASSWORD' : 1234
