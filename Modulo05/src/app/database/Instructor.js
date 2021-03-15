@@ -3,11 +3,12 @@ const dbgym = require("../../config/dbgym");
 
 module.exports = {
     all(callback) {
-    const query = `SELECT instructors.*, count(members.name) as total_students
+    const query = `SELECT instructors.*, count(members.name) as total_members
     FROM instructors
     LEFT JOIN members ON (instructors.id = members.instructor_id)
     GROUP BY instructors.id
-    ORDER BY total_students DESC`;
+    ORDER BY total_members DESC`;
+    
     dbgym.query(query, (error, results) => {
       if (error) throw `Database Error ${error}`;
         callback(results.rows);
@@ -48,13 +49,13 @@ module.exports = {
       });
     },
     getByName(filter, callback) {
-      const query = `SELECT instructors.*, count(members.name) as total_students
+      const query = `SELECT instructors.*, count(members.name) as total_members
                     FROM instructors
                     LEFT JOIN members ON (instructors.id = members.instructor_id)
                     WHERE instructors.name ILIKE '%${filter}%'
                     OR instructors.services ILIKE '%${filter}%'
                     GROUP BY instructors.id
-                    ORDER BY total_students DESC`;
+                    ORDER BY total_members DESC`;
       
       dbgym.query(query, (error, results) => {
         if (error) throw `Database Error ${error}`;

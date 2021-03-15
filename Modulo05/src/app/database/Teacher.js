@@ -1,9 +1,16 @@
-const { date, grade } = require("../../lib/utils");
+const { date, graduation } = require("../../lib/utils");
 const dbSchool = require("../../config/dbschool");
 
 module.exports = {
-    all(callback) { 
-        dbSchool.query(`SELECT * FROM teachers`,
+    all(callback) {
+        const sql = `SELECT teachers.*, count(students.name) as total_students
+                     FROM teachers
+                     LEFT JOIN students ON (teachers.id = students.teacher_id)
+                     GROUP BY teachers.id
+                     ORDER BY total_students DESC 
+        `
+
+        dbSchool.query(sql,
             (error, results) => {
                 if (error) throw `Database Error`;
                 callback(results.rows);

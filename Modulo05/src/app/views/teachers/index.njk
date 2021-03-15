@@ -13,20 +13,22 @@
   <a href="/teachers/create">Novo</a>
     <table width="100%">
       <thead>
-        <tr>
+        <tr class="tr-teachers">
           <th class="head">Nome Completo</th>
           <th class="head">Acompanhamento</th>
+          <th class="head">Qtd. Alunos</th>
           <th class="head">Ação</th>
       </thead>
           <tbody>
             {% for teacher in teachers %}
-              <tr>
+              <tr class="tr-teachers">
                 <td><span style="background-image: url({{teacher.avatar_url}})"></span>{{teacher.name}}</td>
                 <td class="spans">
                   {% for lession in teacher.lessioning %}
                     <span>{{lession}}</span>
                   {% endfor %}
                 </td>
+                <td>{{teacher.total_students}}</td>
                 <td><a href="/teachers/{{teacher.id}}">ver</a></td>
               </tr>
             {% endfor %}

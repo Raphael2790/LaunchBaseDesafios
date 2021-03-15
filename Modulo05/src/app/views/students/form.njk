@@ -1,4 +1,4 @@
-<div class="itens">
+      <div class="itens">
         <div>Avatar URL</div>
         <input 
         type="url" 
@@ -91,6 +91,21 @@
           name="hours"
           value="{{student.hours}}" min="1" max="20">
         </div>
+      </div>
+
+      <div class="itens">
+        <div>Professores</div>
+        <select name="teacher">
+        {% for teacher in teachersOptions %}
+          <option
+          value="{{teacher.id}}"
+          {% if student.teacher_id == teacher.id %}
+          selected
+          {% endif %}>
+          {{teacher.name + " " +"("+teacher.lessioning+")"}}
+          </option>
+        {% endfor %}
+        </select>
       </div>
 
       

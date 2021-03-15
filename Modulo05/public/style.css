@@ -219,6 +219,21 @@ tr{
   grid-template-columns: 200px 280px 150px 50px;
 }
 
+.tr-students td {
+  color: #777;
+  font-weight: bold;
+}
+
+.tr-teachers {
+  display: grid;
+  grid-template-columns: 200px 300px 100px 100px
+}
+
+.tr-teachers td {
+  color: #777;
+  font-weight: bold;
+}
+
 td, th {
   padding: 16px;
   border-bottom: 1px solid #d9d9d9;

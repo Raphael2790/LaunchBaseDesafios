@@ -8,7 +8,9 @@ module.exports = {
     })
   },
   create(req, res) {
-    return res.render("students/create");
+    Student.getTeachersOption((options) => {
+      return res.render("students/create", { teachersOptions: options });
+    })
   },
   post(req, res) {
     const keys = Object.keys(req.body);
@@ -27,6 +29,7 @@ module.exports = {
     Student.getById(req.params.id,
       (student) => {
         if (!student) return res.send("Student Not Found");
+        console.log(student)
         student.birth = date(student.birth).birthDay
         student.created_at = date(student.created_at).format;
         return res.render("students/show", { student });
@@ -38,7 +41,10 @@ module.exports = {
         if (!student) return res.send("Student Not Found");
         student.birth = date(student.birth).iso;
         student.grade = editGradeShow(student.grade);
-        return res.render("students/edit", { student });
+
+        Student.getTeachersOption((options) => {
+          return res.render("students/edit", { student , teachersOptions : options});
+        })
     })
   },
   put(req, res) {
