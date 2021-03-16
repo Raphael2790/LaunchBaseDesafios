@@ -4,7 +4,6 @@ const { age, date } = require("../../lib/utils");
 module.exports = {
   index(req, res) {
     const { filter } = req.query;
-    console.log(filter)
 
     if (filter) {
       Instructor.getByName(filter, (instructors) => {
@@ -12,7 +11,7 @@ module.exports = {
       })
     } else {
       Instructor.all((instructors) => {
-        return res.render("instructors/index", { instructors});
+        return res.render("instructors/index", { instructors, filter});
       })
     }
   },

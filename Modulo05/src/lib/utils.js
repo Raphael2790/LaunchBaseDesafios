@@ -35,11 +35,11 @@ module.exports = {
   graduation: function (string) {
     const graduations = ["Médio", "Superior", "Doutorado", "Mestrado"];
 
-    const grade = graduations.filter((item) => {
-      if (string.indexOf(item) > -1) return item;
+    const grade = graduations.filter((item, index) => {
+      if (string.indexOf(item) > -1) return index;
     });
 
-    return grade;
+    return graduations[grade];
   },
   grade(string) {
     const nivel = string.includes("F") ? "Fundamental" : "Médio";

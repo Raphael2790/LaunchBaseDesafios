@@ -51,7 +51,22 @@ module.exports = {
                 if (error) throw `Database error`;
                 callback(results.rows[0]);
         })
-     },
+    },
+    getTeacherByNameOrLesson(filter, callback) {
+        const sqlQuery = ` SELECT teachers.*, count(students.name) as total_students
+                           FROM teachers  
+                           LEFT JOIN students ON (teachers.id = students.teacher_id)
+                           WHERE teachers.name ILIKE '%${filter}%'
+                           OR teachers.lessioning ILIKE '%${filter}%'
+                           GROUP BY teachers.id
+                           ORDER BY total_students DESC 
+                         `
+        
+        dbSchool.query(sqlQuery, (error, results) => {
+            if (error) throw `Database error ${error}`;
+            callback(results.rows);
+        })
+    },
     update(data, callback) {
         const query = `
             UPDATE teachers SET

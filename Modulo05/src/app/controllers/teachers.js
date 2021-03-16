@@ -3,12 +3,22 @@ const Teacher = require("../database/Teacher");
 
 module.exports = {
   index(req, res) {
-    Teacher.all((teachers) => {
-      teachers.map(teacher => {
-        teacher.lessioning = teacher.lessioning.split(",");
-      });
-      return res.render("teachers/index", { teachers });
-    })
+    const { filter } = req.query;
+    if (filter) {
+      Teacher.getTeacherByNameOrLesson(filter, (teachers) => {
+        teachers.forEach(teacher => {
+          teacher.lessioning = teacher.lessioning.split(",");
+        });
+        return res.render("teachers/index", { teachers, filter });
+      })
+    } else {
+      Teacher.all((teachers) => {
+        teachers.forEach(teacher => {
+          teacher.lessioning = teacher.lessioning.split(",");
+        });
+        return res.render("teachers/index", { teachers, filter });
+      })
+    }
   },
   create(req, res) {
     return res.render("teachers/create");
